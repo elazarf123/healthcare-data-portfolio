@@ -51,13 +51,13 @@
   <header>
     <h1>Hospital Readmission Risk &amp; PHI Access-Audit Dashboard</h1>
     <p>A combined analytics + security view: where avoidable readmissions concentrate, and where patient-data access needs review.</p>
-    <div class="byline">Built by Elazar Ferrer &nbsp;&middot;&nbsp; Google Data Analytics &amp; Google Cybersecurity Certified &nbsp;&middot;&nbsp; Mock data for demonstration</div>
+    <div class="byline">Built by Elazar Ferrer &nbsp;&middot;&nbsp; Google Data Analytics &amp; Google Cybersecurity Certified &nbsp;&middot;&nbsp; Sample hospital vs. real CMS / AHRQ national benchmarks</div>
   </header>
 
   <div class="kpis">
     <div class="kpi"><div class="num bad">25.2%</div><div class="lbl">Heart Failure 30-day readmit</div></div>
-    <div class="kpi"><div class="num">+3.3 pts</div><div class="lbl">Above national benchmark (HF)</div></div>
-    <div class="kpi"><div class="num">1,837</div><div class="lbl">Discharges analyzed</div></div>
+    <div class="kpi"><div class="num">+2.0 pts</div><div class="lbl">Above national benchmark (HF)</div></div>
+    <div class="kpi"><div class="num">1,829</div><div class="lbl">Discharges analyzed</div></div>
     <div class="kpi"><div class="num" style="color:#c0392b">6</div><div class="lbl">PHI access events flagged</div></div>
   </div>
 
@@ -68,7 +68,7 @@
       <div><div class="chart-box"><canvas id="trendChart"></canvas></div></div>
     </div>
     <div class="insight">
-      <b>So what:</b> Heart Failure readmissions run <b>3.3 points above</b> the national benchmark and have trended upward over the last 6 months, peaking in January. CHF is the single largest driver of excess readmissions in this dataset &mdash; targeting discharge follow-up and medication reconciliation here would yield the largest reduction in CMS penalty exposure.
+      <b>So what:</b> Heart Failure readmissions run <b>2.0 points above</b> the real CMS/AHRQ national benchmark (23.2%) and have trended upward over the last 6 months, peaking in January. HF is the single largest driver of excess readmissions in this dataset &mdash; targeting discharge follow-up and medication reconciliation here would yield the largest reduction in CMS penalty exposure.
     </div>
   </div>
 
@@ -97,12 +97,12 @@
 
   <div class="why">
     <h3>Why this matters</h3>
-    <p>Hospital readmissions and improper PHI access are two of the most expensive risks a health system carries &mdash; and they are usually owned by different teams who rarely see the same dashboard. CMS penalizes excess 30-day readmissions under the Hospital Readmissions Reduction Program, so the 3.3-point Heart Failure gap shown here translates directly into withheld reimbursement and worse patient outcomes. Meanwhile, a single unjustified PHI access can trigger a HIPAA breach investigation, mandatory notification, and fines.</p>
-    <p>This project demonstrates the ability to (1) clean and analyze clinical operational data, benchmark it, and surface the one insight a manager can act on, and (2) review access logs with a security lens to flag the patterns that matter. The combination &mdash; analytics judgment plus privacy instinct &mdash; is what reduces both financial and compliance risk for a healthcare employer.</p>
+    <p>Hospital readmissions and improper PHI access are two of the most expensive risks a health system carries &mdash; and they are usually owned by different teams who rarely see the same dashboard. CMS penalizes excess 30-day readmissions under the Hospital Readmissions Reduction Program, so the 2.0-point Heart Failure gap above the national benchmark translates directly into withheld reimbursement and worse patient outcomes. Meanwhile, a single unjustified PHI access can trigger a HIPAA breach investigation, mandatory notification, and fines.</p>
+    <p>This project demonstrates the ability to (1) clean and analyze clinical operational data, benchmark it against real national rates, and surface the one insight a manager can act on, and (2) review access logs with a security lens to flag the patterns that matter. The combination &mdash; analytics judgment plus privacy instinct &mdash; is what reduces both financial and compliance risk for a healthcare employer.</p>
   </div>
 
   <footer>
-    <span class="src">Methodology: Mock dataset modeled on CMS Hospital Readmissions Reduction Program structure (readmissions.csv, readmissions_trend.csv) and a synthetic access-log table (phi_access_logs.csv). Flag logic: any access that is after-hours OR outside the user's department is routed for review. Built with SQL-style aggregation and Chart.js; reproducible in Tableau Public or Looker Studio.</span>
+    <span class="src">National benchmarks reflect real Medicare 30-day readmission rates from CMS Hospital Readmissions Reduction Program measures and AHRQ HCUP Statistical Brief #307 (Heart Failure 23.2%, Pneumonia 16.7%, Acute MI 14.8%). Hospital-level figures are an illustrative sample for demonstration. Access-log flag logic: any access that is after-hours OR outside the user's department is routed for review. Built with Chart.js; reproducible in Tableau Public or Looker Studio.</span>
   </footer>
 </div>
 
@@ -114,14 +114,14 @@ Chart.defaults.font.size = 11;
 new Chart(document.getElementById('barChart'), {
   type:'bar',
   data:{
-    labels:['Heart Failure','Pneumonia','COPD','Acute MI','Stroke','Hip/Knee'],
+    labels:['Heart Failure','Pneumonia','COPD','Acute MI','CABG','Hip/Knee'],
     datasets:[
-      {label:'Readmission rate %', data:[25.2,17.9,20.1,15.4,18.8,4.9], backgroundColor:[red,blue,blue,blue,blue,teal], borderRadius:3},
-      {label:'National benchmark %', type:'line', data:[21.9,16.3,19.6,15.4,17.1,5.5], borderColor:'#333', borderDash:[5,4], borderWidth:1.5, pointRadius:3, pointBackgroundColor:'#333'}
+      {label:'Hospital readmission rate %', data:[25.2,17.9,20.1,15.4,13.7,4.9], backgroundColor:[red,blue,blue,blue,blue,teal], borderRadius:3},
+      {label:'National benchmark %', type:'line', data:[23.2,16.7,19.9,14.8,12.9,4.2], borderColor:'#333', borderDash:[5,4], borderWidth:1.5, pointRadius:3, pointBackgroundColor:'#333'}
     ]
   },
   options:{ responsive:true, maintainAspectRatio:false,
-    plugins:{ title:{display:true,text:'30-Day Readmission Rate vs. National Benchmark',color:navy,font:{size:12,weight:'bold'}}, legend:{position:'bottom',labels:{boxWidth:12,font:{size:10}}} },
+    plugins:{ title:{display:true,text:'30-Day Readmission Rate vs. CMS National Benchmark',color:navy,font:{size:12,weight:'bold'}}, legend:{position:'bottom',labels:{boxWidth:12,font:{size:10}}} },
     scales:{ y:{beginAtZero:true,title:{display:true,text:'% readmitted'},ticks:{callback:v=>v+'%'}} }
   }
 });
@@ -132,7 +132,7 @@ new Chart(document.getElementById('trendChart'), {
     labels:['Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun'],
     datasets:[
       {label:'HF readmit %', data:[23.1,23.8,24.0,24.6,25.1,26.3,26.8,25.9,25.4,25.0,25.2,25.2], borderColor:red, backgroundColor:'rgba(192,57,43,.08)', fill:true, tension:.3, pointRadius:2},
-      {label:'Benchmark', data:Array(12).fill(21.9), borderColor:'#333', borderDash:[5,4], borderWidth:1.5, pointRadius:0}
+      {label:'National benchmark', data:Array(12).fill(23.2), borderColor:'#333', borderDash:[5,4], borderWidth:1.5, pointRadius:0}
     ]
   },
   options:{ responsive:true, maintainAspectRatio:false,
