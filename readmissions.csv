@@ -1,0 +1,7 @@
+condition,condition_code,discharges,readmissions_30day,readmission_rate_pct,national_benchmark_pct,variance_pct
+Heart Failure,HF,412,104,25.2,21.9,3.3
+Pneumonia,PN,386,69,17.9,16.3,1.6
+COPD,COPD,298,60,20.1,19.6,0.5
+Acute MI (Heart Attack),AMI,221,34,15.4,15.4,0.0
+Hip/Knee Replacement,THA-TKA,344,17,4.9,5.5,-0.6
+Stroke,STK,176,33,18.8,17.1,1.7
