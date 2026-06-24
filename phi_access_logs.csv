@@ -1,0 +1,21 @@
+event_id,user_id,user_role,user_dept,record_dept,access_time,after_hours,same_dept,flag_reason
+1001,U204,Nurse,Cardiology,Cardiology,2026-06-15 09:12,No,Yes,
+1002,U118,Physician,Oncology,Oncology,2026-06-15 10:48,No,Yes,
+1003,U332,Billing,Finance,Finance,2026-06-15 11:05,No,Yes,
+1004,U204,Nurse,Cardiology,Maternity,2026-06-15 14:22,No,No,Cross-department access
+1005,U451,Front Desk,Registration,Behavioral Health,2026-06-15 15:39,No,No,Cross-department access
+1006,U118,Physician,Oncology,Oncology,2026-06-16 02:14,Yes,Yes,After-hours access
+1007,U267,Lab Tech,Laboratory,Laboratory,2026-06-16 08:30,No,Yes,
+1008,U332,Billing,Finance,Cardiology,2026-06-16 09:41,No,No,Cross-department access
+1009,U509,Nurse,Emergency,Emergency,2026-06-16 12:03,No,Yes,
+1010,U451,Front Desk,Registration,Registration,2026-06-16 13:17,No,Yes,
+1011,U622,IT Support,IT,Oncology,2026-06-16 23:51,Yes,No,After-hours + cross-department
+1012,U204,Nurse,Cardiology,Cardiology,2026-06-17 07:58,No,Yes,
+1013,U118,Physician,Oncology,Behavioral Health,2026-06-17 16:44,No,No,Cross-department access
+1014,U267,Lab Tech,Laboratory,Laboratory,2026-06-17 18:22,No,Yes,
+1015,U713,Nurse,Maternity,Maternity,2026-06-17 21:35,Yes,Yes,After-hours access
+1016,U332,Billing,Finance,Finance,2026-06-18 09:09,No,Yes,
+1017,U622,IT Support,IT,IT,2026-06-18 10:25,No,Yes,
+1018,U509,Nurse,Emergency,Oncology,2026-06-18 03:47,Yes,No,After-hours + cross-department
+1019,U118,Physician,Oncology,Oncology,2026-06-18 11:52,No,Yes,
+1020,U451,Front Desk,Registration,Registration,2026-06-18 14:30,No,Yes,
