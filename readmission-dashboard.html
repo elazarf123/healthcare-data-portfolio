@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospital Readmission &amp; PHI Access-Audit Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --navy:#14375f; --blue:#2f6fb0; --teal:#1a8a8a; --red:#c0392b;
+    --amber:#d98a00; --ink:#1a1a1a; --muted:#667; --line:#dde3ea; --bg:#f6f8fb;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; color:var(--ink); background:var(--bg); padding:24px; }
+  .back { display:block; max-width:1040px; margin:0 auto 10px; font-size:12px; color:var(--blue); text-decoration:none; }
+  .wrap { max-width:1040px; margin:0 auto; background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden; box-shadow:0 2px 14px rgba(20,55,95,.06); }
+  header { background:linear-gradient(120deg,var(--navy),var(--blue)); color:#fff; padding:20px 26px; }
+  header h1 { font-size:21px; letter-spacing:.3px; }
+  header p { font-size:12.5px; opacity:.9; margin-top:4px; }
+  .byline { font-size:11px; opacity:.8; margin-top:8px; }
+  .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; padding:20px 26px 6px; }
+  .kpi { border:1px solid var(--line); border-radius:8px; padding:12px 14px; background:#fcfdff; }
+  .kpi .num { font-size:23px; font-weight:700; color:var(--navy); }
+  .kpi .num.bad { color:var(--red); }
+  .kpi .lbl { font-size:10.5px; color:var(--muted); margin-top:3px; text-transform:uppercase; letter-spacing:.5px; }
+  .panel { padding:14px 26px 6px; }
+  .panel h2 { font-size:13px; color:var(--navy); text-transform:uppercase; letter-spacing:1px; border-bottom:2px solid var(--line); padding-bottom:6px; margin-bottom:6px; }
+  .panel h2 .tag { float:right; font-size:9.5px; background:#eef3f9; color:var(--blue); padding:2px 8px; border-radius:10px; letter-spacing:.5px; }
+  .grid2 { display:grid; grid-template-columns:1.25fr 1fr; gap:22px; align-items:start; }
+  .chart-box { position:relative; height:230px; }
+  .insight { background:#fff8ec; border-left:4px solid var(--amber); padding:10px 14px; border-radius:0 6px 6px 0; font-size:12.5px; margin-top:8px; }
+  .insight b { color:#9a6300; }
+  table { width:100%; border-collapse:collapse; font-size:11.5px; margin-top:4px; }
+  th { text-align:left; background:var(--navy); color:#fff; padding:6px 8px; font-weight:600; }
+  td { padding:5px 8px; border-bottom:1px solid var(--line); }
+  tr.flag td { background:#fdecea; }
+  .pill { font-size:10px; padding:2px 7px; border-radius:9px; font-weight:600; }
+  .pill.clear { background:#e6f4ea; color:#1f7a3d; }
+  .pill.review { background:#fde1dd; color:var(--red); }
+  .why { margin:6px 26px 22px; background:#f0f5fb; border:1px solid #dbe6f3; border-radius:8px; padding:14px 18px; }
+  .why h3 { font-size:12px; color:var(--navy); text-transform:uppercase; letter-spacing:.8px; margin-bottom:6px; }
+  .why p { font-size:12.5px; line-height:1.5; color:#333; }
+  .why p + p { margin-top:7px; }
+  footer { font-size:10.5px; color:var(--muted); padding:0 26px 18px; max-width:1040px; margin:0 auto; }
+  .src { font-style:italic; }
+</style>
+</head>
+<body>
+<a class="back" href="index.html">&larr; Back to portfolio</a>
+<div class="wrap">
+  <header>
+    <h1>Hospital Readmission Risk &amp; PHI Access-Audit Dashboard</h1>
+    <p>A combined analytics + security view: where avoidable readmissions concentrate, and where patient-data access needs review.</p>
+    <div class="byline">Built by El&rsquo;Azar Ferrer &nbsp;&middot;&nbsp; Google Data Analytics &amp; Google Cybersecurity Certified &nbsp;&middot;&nbsp; Sample hospital vs. real CMS / AHRQ national benchmarks</div>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi"><div class="num bad">25.2%</div><div class="lbl">Heart Failure 30-day readmit</div></div>
+    <div class="kpi"><div class="num">+2.0 pts</div><div class="lbl">Above national benchmark (HF)</div></div>
+    <div class="kpi"><div class="num">1,829</div><div class="lbl">Discharges analyzed</div></div>
+    <div class="kpi"><div class="num" style="color:#c0392b">6</div><div class="lbl">PHI access events flagged</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 1 &mdash; Readmission Analytics <span class="tag">DATA ANALYTICS</span></h2>
+    <div class="grid2">
+      <div><div class="chart-box"><canvas id="barChart"></canvas></div></div>
+      <div><div class="chart-box"><canvas id="trendChart"></canvas></div></div>
+    </div>
+    <div class="insight">
+      <b>So what:</b> Heart Failure readmissions run <b>2.0 points above</b> the real CMS/AHRQ national benchmark (23.2%) and have trended upward over the last 6 months, peaking in January. HF is the single largest driver of excess readmissions in this dataset &mdash; targeting discharge follow-up and medication reconciliation here would yield the largest reduction in CMS penalty exposure.
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Panel 2 &mdash; PHI Access Audit <span class="tag">CYBERSECURITY / HIPAA</span></h2>
+    <div class="grid2">
+      <div>
+        <table>
+          <thead><tr><th>User</th><th>Role</th><th>Record Dept</th><th>Time</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr class="flag"><td>U204</td><td>Nurse</td><td>Maternity</td><td>06-15 14:22</td><td><span class="pill review">Review</span></td></tr>
+            <tr class="flag"><td>U622</td><td>IT Support</td><td>Oncology</td><td>06-16 23:51</td><td><span class="pill review">Review</span></td></tr>
+            <tr class="flag"><td>U118</td><td>Physician</td><td>Behavioral Hlth</td><td>06-17 16:44</td><td><span class="pill review">Review</span></td></tr>
+            <tr class="flag"><td>U509</td><td>Nurse</td><td>Oncology</td><td>06-18 03:47</td><td><span class="pill review">Review</span></td></tr>
+            <tr><td>U204</td><td>Nurse</td><td>Cardiology</td><td>06-15 09:12</td><td><span class="pill clear">Clear</span></td></tr>
+            <tr><td>U267</td><td>Lab Tech</td><td>Laboratory</td><td>06-16 08:30</td><td><span class="pill clear">Clear</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div><div class="chart-box"><canvas id="flagChart"></canvas></div></div>
+    </div>
+    <div class="insight">
+      <b>So what:</b> 6 of 20 access events tripped a rule &mdash; the highest-risk being <b>after-hours cross-department access</b> (e.g., an Emergency nurse opening an Oncology record at 3:47 AM). These are exactly the patterns a HIPAA audit looks for: each flagged event is a potential improper-access incident that should be confirmed against a documented business reason before it becomes a reportable breach.
+    </div>
+  </div>
+
+  <div class="why">
+    <h3>Why this matters</h3>
+    <p>Hospital readmissions and improper PHI access are two of the most expensive risks a health system carries &mdash; and they are usually owned by different teams who rarely see the same dashboard. CMS penalizes excess 30-day readmissions under the Hospital Readmissions Reduction Program, so the 2.0-point Heart Failure gap above the national benchmark translates directly into withheld reimbursement and worse patient outcomes. Meanwhile, a single unjustified PHI access can trigger a HIPAA breach investigation, mandatory notification, and fines.</p>
+    <p>This project demonstrates the ability to (1) clean and analyze clinical operational data, benchmark it against real national rates, and surface the one insight a manager can act on, and (2) review access logs with a security lens to flag the patterns that matter. The combination &mdash; analytics judgment plus privacy instinct &mdash; is what reduces both financial and compliance risk for a healthcare employer.</p>
+  </div>
+
+  <footer>
+    <span class="src">National benchmarks reflect real Medicare 30-day readmission rates from CMS Hospital Readmissions Reduction Program measures and AHRQ HCUP Statistical Brief #307 (Heart Failure 23.2%, Pneumonia 16.7%, Acute MI 14.8%). Hospital-level figures are an illustrative sample for demonstration. Access-log flag logic: any access that is after-hours OR outside the user's department is routed for review. Built with Chart.js; reproducible in Tableau Public or Looker Studio.</span>
+  </footer>
+</div>
+
+<script>
+const navy="#14375f", blue="#2f6fb0", red="#c0392b", teal="#1a8a8a", amber="#d98a00";
+Chart.defaults.font.family = "Segoe UI, Helvetica Neue, Arial, sans-serif";
+Chart.defaults.font.size = 11;
+
+new Chart(document.getElementById('barChart'), {
+  type:'bar',
+  data:{
+    labels:['Heart Failure','Pneumonia','COPD','Acute MI','CABG','Hip/Knee'],
+    datasets:[
+      {label:'Hospital readmission rate %', data:[25.2,17.9,20.1,15.4,13.7,4.9], backgroundColor:[red,blue,blue,blue,blue,teal], borderRadius:3},
+      {label:'National benchmark %', type:'line', data:[23.2,16.7,19.9,14.8,12.9,4.2], borderColor:'#333', borderDash:[5,4], borderWidth:1.5, pointRadius:3, pointBackgroundColor:'#333'}
+    ]
+  },
+  options:{ responsive:true, maintainAspectRatio:false,
+    plugins:{ title:{display:true,text:'30-Day Readmission Rate vs. CMS National Benchmark',color:navy,font:{size:12,weight:'bold'}}, legend:{position:'bottom',labels:{boxWidth:12,font:{size:10}}} },
+    scales:{ y:{beginAtZero:true,title:{display:true,text:'% readmitted'},ticks:{callback:v=>v+'%'}} }
+  }
+});
+
+new Chart(document.getElementById('trendChart'), {
+  type:'line',
+  data:{
+    labels:['Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun'],
+    datasets:[
+      {label:'HF readmit %', data:[23.1,23.8,24.0,24.6,25.1,26.3,26.8,25.9,25.4,25.0,25.2,25.2], borderColor:red, backgroundColor:'rgba(192,57,43,.08)', fill:true, tension:.3, pointRadius:2},
+      {label:'National benchmark', data:Array(12).fill(23.2), borderColor:'#333', borderDash:[5,4], borderWidth:1.5, pointRadius:0}
+    ]
+  },
+  options:{ responsive:true, maintainAspectRatio:false,
+    plugins:{ title:{display:true,text:'Heart Failure Readmission Trend (12 mo)',color:navy,font:{size:12,weight:'bold'}}, legend:{position:'bottom',labels:{boxWidth:12,font:{size:10}}} },
+    scales:{ y:{title:{display:true,text:'% readmitted'},ticks:{callback:v=>v+'%'}} }
+  }
+});
+
+new Chart(document.getElementById('flagChart'), {
+  type:'doughnut',
+  data:{
+    labels:['After-hours + cross-dept','Cross-department','After-hours','Clear'],
+    datasets:[{ data:[2,2,2,14], backgroundColor:[red,amber,'#e8b04b',teal], borderColor:'#fff', borderWidth:2 }]
+  },
+  options:{ responsive:true, maintainAspectRatio:false, cutout:'58%',
+    plugins:{ title:{display:true,text:'Access Events by Risk Flag (n=20)',color:navy,font:{size:12,weight:'bold'}}, legend:{position:'bottom',labels:{boxWidth:12,font:{size:9.5}}} }
+  }
+});
+</script>
+</body>
+</html>
