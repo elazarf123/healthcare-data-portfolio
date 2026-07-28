@@ -188,7 +188,7 @@ new Chart(document.getElementById('vulnChart'), {
   }
 });
 
-new Chart(document.getElementById('recallChart'), {
+window.recallChartRef = new Chart(document.getElementById('recallChart'), {
   type:'doughnut',
   data:{
     labels:['Class II (moderate)','Class I (highest risk)','Class III (low)'],
@@ -200,5 +200,44 @@ new Chart(document.getElementById('recallChart'), {
 });
 </script>
 
+
+<!-- Live data: openFDA recalls + NVD CVEs, refreshed weekly by .github/workflows/update-data.yml.
+     Falls back silently to the built-in figures if the fetch fails. -->
+<script>
+(function () {
+  function num(el, v) { var n = document.getElementById(el); if (n && v != null) n.textContent = v; }
+
+  fetch("data/fda_recall_classes.json", { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (!d || !d.by_class || !window.recallChartRef) return;
+      var b = d.by_class;
+      var c1 = b["1"] || b["Class 1"] || 0;
+      var c2 = b["2"] || b["Class 2"] || 0;
+      var c3 = b["3"] || b["Class 3"] || 0;
+      if (c1 + c2 + c3 === 0) return;              // nothing usable, keep built-in data
+      window.recallChartRef.data.datasets[0].data = [c2, c1, c3];  // chart order: II, I, III
+      window.recallChartRef.update();
+      var tag = document.getElementById("recall-source");
+      if (tag) tag.textContent = "Live openFDA data - " + (c1 + c2 + c3) + " recalls";
+    })
+    .catch(function () {});
+
+  fetch("data/nvd_medical_cves.json", { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (!d) return;
+      num("nvd-count", d.count);
+      var sev = d.by_severity || {};
+      num("nvd-critical", (sev.CRITICAL || 0) + (sev.HIGH || 0));
+    })
+    .catch(function () {});
+
+  fetch("data/last_updated.json", { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) { if (d && d.updated_human) num("data-updated", d.updated_human); })
+    .catch(function () {});
+})();
+</script>
 </body>
 </html>
