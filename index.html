@@ -10,7 +10,7 @@
   --red: #e74c3c; --green: #27ae60; --text: #e8eaf0; --muted: #8a9bb5; --accent: #4a9eff;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--dark); color: var(--text); font-family: 'Segoe UI', Arial, sans-serif; padding: 40px 24px; }
+body { background: var(--dark); color: var(--text); font-family: 'Segoe UI', Arial, sans-serif; padding: 40px 24px; overflow-x: hidden; }
 .wrap { max-width: 1000px; margin: 0 auto; }
 header { text-align: center; margin-bottom: 14px; }
 header h1 { font-size: 2rem; color: #fff; letter-spacing: 1px; }
@@ -31,8 +31,8 @@ header .location { color: var(--muted); font-size: 0.85rem; margin-top: 10px; }
 .freshness { text-align: center; margin: 0 auto 34px; font-size: 0.75rem; color: var(--muted); }
 .freshness .dot { display:inline-block; width:7px; height:7px; border-radius:50%; background: var(--green); margin-right:6px; vertical-align: middle; }
 
-.cards { display: grid; grid-template-columns: 1fr; gap: 20px; }
-.proj { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: border-color .2s, transform .2s; }
+.cards { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+.proj { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; min-width: 0; transition: border-color .2s, transform .2s; }
 .proj:hover { border-color: var(--accent); transform: translateY(-2px); }
 .proj .tag { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); font-weight: 700; }
 .proj h2 { font-size: 1.2rem; color: #fff; margin: 6px 0 8px; }
@@ -40,12 +40,13 @@ header .location { color: var(--muted); font-size: 0.85rem; margin-top: 10px; }
 .proj p strong { color: var(--text); font-weight: 700; }
 .proj ul { margin: 12px 0 14px 18px; color: var(--muted); font-size: 0.84rem; line-height: 1.6; }
 
-.project-preview { position: relative; margin: 16px 0 18px; border-radius: 8px; overflow: hidden;
+/* Live, scaled thumbnail of each dashboard. The iframe renders at a natural 1300px
+   desktop width then scales down to fill the card; overflow:hidden crops the rest.
+   min-width:0 on .proj + minmax(0,1fr) on the grid stop the 1300px child from
+   stretching the card past the 1000px wrapper. */
+.project-preview { position: relative; width: 100%; max-width: 100%; margin: 16px 0 18px; border-radius: 8px; overflow: hidden;
   border: 1px solid var(--border); background: #fff; height: 210px;
   box-shadow: 0 4px 10px -2px rgba(0,0,0,.35); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
-/* iframe renders at a natural 1300px desktop width, then scales to fill the card.
-   0.74 * 1300 = 962px >= card inner width (~952px), so there is no gutter on the right.
-   The 900px tall render is cropped by overflow:hidden, leaving a clean thumbnail. */
 .project-preview iframe { width: 1300px; height: 900px; border: 0; transform: scale(0.74); transform-origin: top left; pointer-events: none; display: block; }
 .project-preview::after { content:""; position:absolute; inset:0; background: linear-gradient(to bottom, rgba(0,0,0,0) 62%, rgba(15,25,35,.45) 100%); }
 .proj:hover .project-preview { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 12px 20px -6px rgba(0,0,0,.5); }
