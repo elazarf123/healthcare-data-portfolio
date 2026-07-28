@@ -83,10 +83,10 @@ footer a { color: var(--accent); text-decoration: none; }
 </header>
 
 <p class="intro">
-A portfolio of interactive dashboards at the intersection of <strong>healthcare data analytics</strong> and <strong>cybersecurity / HIPAA compliance</strong>, built on real public data from CMS, AHRQ, HHS/OCR, FDA, and CISA. Each project pairs an analytics question with a security or compliance lens &mdash; the combination that reduces both financial and regulatory risk for a healthcare organization.
+A portfolio of interactive dashboards at the intersection of <strong>healthcare data analytics</strong> and <strong>cybersecurity / HIPAA compliance</strong>, built on real public data from CMS, AHRQ, HHS/OCR, FDA, and NVD. Each project pairs an analytics question with a security or compliance lens &mdash; the combination that reduces both financial and regulatory risk for a healthcare organization.
 </p>
 
-<div class="freshness"><span class="dot"></span>Source data refreshed automatically &middot; last updated <span id="last-updated">&mdash;</span></div>
+<div class="freshness"><span class="dot"></span>openFDA, NVD &amp; CMS data refreshed weekly by an automated pipeline &middot; last updated <span id="last-updated">&mdash;</span></div>
 
 <div class="cards">
 
@@ -100,7 +100,7 @@ A portfolio of interactive dashboards at the intersection of <strong>healthcare 
     <div class="stats">
       <div class="stat"><b>1,829</b><span>discharges analyzed</span></div>
       <div class="stat"><b>+2.0 pts</b><span>above HF benchmark</span></div>
-      <div class="stat"><b>6</b><span>PHI events flagged</span></div>
+      <div class="stat"><b id="stat-cms">500</b><span>CMS HRRP rows (live)</span></div>
     </div>
     <ul>
       <li>Readmission analytics vs. real Medicare national benchmarks (HRRP)</li>
@@ -123,7 +123,7 @@ A portfolio of interactive dashboards at the intersection of <strong>healthcare 
       <div class="stat"><b>$7.42M</b><span>avg. breach cost</span></div>
     </div>
     <ul>
-      <li>2025 breach landscape: trends, entity types, attack vectors</li>
+      <li>2025 breach landscape: trends, entity types, attack vectors (HHS/OCR snapshot)</li>
       <li>Risk scoring + NIST CSF 2.0 control mapping</li>
     </ul>
     <div class="tools"><span class="tool">Python</span><span class="tool">SQL</span><span class="tool">Chart.js</span><span class="tool">HHS / OCR data</span></div>
@@ -136,17 +136,17 @@ A portfolio of interactive dashboards at the intersection of <strong>healthcare 
     <div class="project-preview">
       <iframe src="device-security-dashboard.html" loading="lazy" tabindex="-1" aria-hidden="true" title="Preview of the IoMT security dashboard" scrolling="no"></iframe>
     </div>
-    <p>Maps connected-medical-device vulnerability exposure to <strong>patient-safety risk</strong> using <strong>real FDA recall data</strong>, <strong>CISA ICS Medical Advisories</strong>, and published IoMT research &mdash; with a <strong>device-class risk scorecard</strong> and <strong>NIST CSF 2.0 controls</strong> mapped to IoMT threats.</p>
+    <p>Maps connected-medical-device vulnerability exposure to <strong>patient-safety risk</strong> using <strong>live openFDA recall data</strong> and <strong>NVD medical-device CVEs with CVSS severity</strong> &mdash; with a <strong>device-class risk scorecard</strong> and <strong>NIST CSF 2.0 controls</strong> mapped to IoMT threats.</p>
     <div class="stats">
-      <div class="stat"><b id="stat-fda">FDA</b><span>recalls tracked</span></div>
-      <div class="stat"><b id="stat-cisa">CISA</b><span>ICS medical advisories</span></div>
+      <div class="stat"><b id="stat-fda">100</b><span>openFDA recalls (live)</span></div>
+      <div class="stat"><b id="stat-nvd">20</b><span>NVD CVEs (live)</span></div>
       <div class="stat"><b>NIST CSF 2.0</b><span>control mapping</span></div>
     </div>
     <ul>
       <li>Vulnerability prevalence by device type + FDA recall risk classes</li>
-      <li>Real CISA advisories + IoMT risk scorecard + NIST CSF mapping</li>
+      <li>CVSS-scored CVEs + IoMT risk scorecard + NIST CSF mapping</li>
     </ul>
-    <div class="tools"><span class="tool">SQL</span><span class="tool">Chart.js</span><span class="tool">FDA / CISA data</span></div>
+    <div class="tools"><span class="tool">Python</span><span class="tool">SQL</span><span class="tool">Chart.js</span><span class="tool">openFDA / NVD</span></div>
     <a class="view" href="device-security-dashboard.html">View dashboard &rarr;</a>
   </div>
 
@@ -164,10 +164,10 @@ fetch('data/last_updated.json', { cache: 'no-store' })
   .then(function (d) {
     if (!d) return;
     if (d.updated_human) document.getElementById('last-updated').textContent = d.updated_human;
-    if (d.counts) {
-      if (d.counts.fda_recalls)     document.getElementById('stat-fda').textContent  = d.counts.fda_recalls;
-      if (d.counts.cisa_advisories) document.getElementById('stat-cisa').textContent = d.counts.cisa_advisories;
-    }
+    var c = d.counts || {};
+    if (c.fda_recalls)      document.getElementById('stat-fda').textContent = c.fda_recalls;
+    if (c.nvd_medical_cves) document.getElementById('stat-nvd').textContent = c.nvd_medical_cves;
+    if (c.cms_hrrp_rows)    document.getElementById('stat-cms').textContent = c.cms_hrrp_rows;
   })
   .catch(function () {});
 </script>
