@@ -191,11 +191,14 @@ def fetch_nvd_medical_cves(per_keyword: int = 50) -> int:
 
 
 # ---------------------------------------------------------------- CMS
-def fetch_cms_hrrp() -> int:
-    """CMS Hospital Readmissions Reduction Program rows.
+def fetch_cms_hrrp(page_size: int = 2000, max_pages: int = 25) -> int:
+    """CMS Hospital Readmissions Reduction Program - full dataset, aggregated.
 
-    The Provider Data Catalog assigns each dataset a UUID that changes with releases,
-    so we look it up by title. Set CMS_HRRP_DATASET_ID to pin a specific one.
+    Earlier versions pulled a single limit=500 page. Those rows come back ordered by
+    facility_id, so they were roughly the first ~70 hospitals per measure alphabetically
+    by state - a geographically biased slice, not a national figure. We now page through
+    the whole dataset and store only a compact per-measure summary, so the number really
+    is national and the repo does not carry a multi-megabyte JSON dump every week.
     """
     dataset_id = os.environ.get("CMS_HRRP_DATASET_ID", "").strip()
 
@@ -210,14 +213,64 @@ def fetch_cms_hrrp() -> int:
     if not dataset_id:
         raise RuntimeError("could not locate the HRRP dataset in the CMS catalog")
 
-    url = (
-        "https://data.cms.gov/provider-data/api/1/datastore/query/"
-        f"{dataset_id}/0?limit=500&offset=0"
+    base = f"https://data.cms.gov/provider-data/api/1/datastore/query/{dataset_id}/0"
+
+    sums, counts, facilities = {}, {}, set()
+    total_rows, offset, pages = 0, 0, 0
+    start_date = end_date = None
+
+    while pages < max_pages:
+        payload = get_json(f"{base}?limit={page_size}&offset={offset}")
+        rows = payload.get("results", [])
+        if not rows:
+            break
+
+        for row in rows:
+            measure = row.get("measure_name")
+            if not measure:
+                continue
+            facilities.add(row.get("facility_id"))
+            start_date = start_date or row.get("start_date")
+            end_date = end_date or row.get("end_date")
+            try:
+                rate = float(row.get("expected_readmission_rate"))
+            except (TypeError, ValueError):
+                continue  # "N/A" / "Too Few to Report"
+            sums[measure] = sums.get(measure, 0.0) + rate
+            counts[measure] = counts.get(measure, 0) + 1
+
+        total_rows += len(rows)
+        offset += page_size
+        pages += 1
+        if len(rows) < page_size:
+            break
+
+    if not counts:
+        raise RuntimeError("CMS returned no usable expected_readmission_rate values")
+
+    national = {
+        measure: {
+            "expected_readmission_rate_mean": round(sums[measure] / counts[measure], 2),
+            "hospitals": counts[measure],
+        }
+        for measure in sorted(counts)
+    }
+
+    write(
+        "cms_hrrp_summary.json",
+        {
+            "generated": now_iso(),
+            "dataset_id": dataset_id,
+            "source": "CMS Provider Data Catalog - Hospital Readmissions Reduction Program",
+            "scope": "national - all hospitals in the current CMS release",
+            "measurement_period": {"start": start_date, "end": end_date},
+            "rows_scanned": total_rows,
+            "distinct_facilities": len(facilities),
+            "by_measure": national,
+        },
     )
-    payload = get_json(url)
-    rows = payload.get("results", [])
-    write("cms_hrrp.json", {"generated": now_iso(), "dataset_id": dataset_id, "count": len(rows), "rows": rows})
-    return len(rows)
+    print(f"    scanned {total_rows} rows across {len(facilities)} facilities")
+    return total_rows
 
 
 # ---------------------------------------------------------------- main
