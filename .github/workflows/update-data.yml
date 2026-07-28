@@ -12,11 +12,11 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Fetch latest public-source data
         run: python scripts/update_data.py
@@ -27,7 +27,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if [ -n "$(git status --porcelain data/)" ]; then
             git add data/
-            git commit -m "chore(data): weekly refresh from FDA / CISA / CMS"
+            git commit -m "chore(data): weekly refresh from openFDA / NVD / CMS"
             git push
           else
             echo "No data changes."
