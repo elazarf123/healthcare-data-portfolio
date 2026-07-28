@@ -1,0 +1,12 @@
+{
+  "updated": "2026-07-28T00:00:00+00:00",
+  "updated_human": "pending first run",
+  "counts": {},
+  "errors": {},
+  "sources": {
+    "fda": "openFDA Device Recall API",
+    "cisa": "CISA ICS Medical Advisories",
+    "cms": "CMS Provider Data Catalog (HRRP)",
+    "hhs_ocr": "HHS OCR Breach Portal (manual CSV - no public API)"
+  }
+}
