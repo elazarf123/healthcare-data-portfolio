@@ -191,7 +191,7 @@ def fetch_nvd_medical_cves(per_keyword: int = 50) -> int:
 
 
 # ---------------------------------------------------------------- CMS
-def fetch_cms_hrrp(page_size: int = 2000, max_pages: int = 25) -> int:
+def fetch_cms_hrrp(page_size: int = 500, max_pages: int = 80) -> int:
     """CMS Hospital Readmissions Reduction Program - full dataset, aggregated.
 
     Earlier versions pulled a single limit=500 page. Those rows come back ordered by
