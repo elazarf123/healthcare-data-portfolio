@@ -1,17 +1,17 @@
 {
-  "updated": "2026-07-28T01:08:50+00:00",
+  "updated": "2026-07-28T01:14:30+00:00",
   "updated_human": "Jul 28, 2026",
   "counts": {
     "fda_recalls": 100,
     "cms_hrrp_rows": 500
   },
   "errors": {
-    "cisa_advisories": "HTTPError: HTTP Error 403: Forbidden"
+    "cisa_advisories": "RuntimeError: all CISA feeds failed; last: https://www.cisa.gov/uscert/ics/advisories/advisories.xml -> HTTPError: HTTP Error 403: Forbidden"
   },
   "sources": {
     "fda": "openFDA Device Recall API",
     "cisa": "CISA ICS Medical Advisories",
     "cms": "CMS Provider Data Catalog (HRRP)",
-    "hhs_ocr": "HHS OCR Breach Portal (manual CSV \u2014 no public API)"
+    "hhs_ocr": "HHS OCR Breach Portal (manual CSV - no public API)"
   }
 }
