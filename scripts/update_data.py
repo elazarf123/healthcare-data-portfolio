@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""update_data.py — Refresh portfolio dashboard data from public healthcare sources.
+"""update_data.py - Refresh portfolio dashboard data from public healthcare sources.
 
 Run by .github/workflows/update-data.yml on a weekly schedule (and on demand).
 Standard library only, so the GitHub Action needs no pip install.
 
 Sources
   - openFDA Device Recalls .......... https://api.fda.gov/device/recall.json   (public API, no key)
-  - CISA ICS Medical Advisories ..... https://www.cisa.gov/.../ics-medical-advisories.xml (RSS)
+  - CISA ICS Medical Advisories ..... CISA RSS feeds (WAF requires a browser-like UA)
   - CMS Provider Data (HRRP) ........ https://data.cms.gov/provider-data/api/1/datastore/query
 
 Writes data/*.json. Any source that fails leaves its previous JSON untouched, so a
@@ -30,7 +30,16 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 DATA.mkdir(exist_ok=True)
 
-UA = {"User-Agent": "healthcare-data-portfolio/1.0 (github.com/elazarf123)"}
+# CISA sits behind a WAF that rejects non-browser agents with HTTP 403, so send a
+# realistic browser UA and Accept header on every request.
+UA = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/rss+xml, application/xml, text/xml, application/json;q=0.9, */*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+}
 TIMEOUT = 45
 CTX = ssl.create_default_context()
 
@@ -81,10 +90,33 @@ def fetch_fda_recalls(limit: int = 100) -> int:
 
 
 # ---------------------------------------------------------------- CISA
+CISA_FEEDS = (
+    "https://www.cisa.gov/cybersecurity-advisories/ics-medical-advisories.xml",
+    "https://www.cisa.gov/news.xml",
+    "https://www.cisa.gov/uscert/ics/advisories/advisories.xml",
+)
+
+
 def fetch_cisa_medical_advisories() -> int:
-    """CISA ICS Medical Advisories RSS -> structured JSON."""
-    url = "https://www.cisa.gov/cybersecurity-advisories/ics-medical-advisories.xml"
-    root = ElementTree.fromstring(get(url))
+    """CISA ICS Medical Advisories RSS -> structured JSON.
+
+    Tries each known feed URL in turn; CISA rotates these and fronts them with a WAF.
+    """
+    last_error = None
+    root = None
+    used = None
+
+    for url in CISA_FEEDS:
+        try:
+            root = ElementTree.fromstring(get(url))
+            used = url
+            break
+        except Exception as exc:
+            last_error = f"{url} -> {type(exc).__name__}: {exc}"
+            continue
+
+    if root is None:
+        raise RuntimeError(f"all CISA feeds failed; last: {last_error}")
 
     items = []
     for item in root.iter("item"):
@@ -92,17 +124,25 @@ def fetch_cisa_medical_advisories() -> int:
             el = item.find(tag)
             return (el.text or "").strip() if el is not None and el.text else ""
 
+        title = txt("title")
+        # the general feeds carry non-medical items too; keep the medical/ICS ones
+        if "ics-medical" not in used and not re.search(r"medical|ICSMA", title, re.I):
+            continue
+
         desc = re.sub(r"<[^>]+>", "", txt("description"))
         items.append(
             {
-                "title": txt("title"),
+                "title": title,
                 "link": txt("link"),
                 "published": txt("pubDate"),
                 "summary": desc[:280],
             }
         )
 
-    write("cisa_medical_advisories.json", {"generated": now_iso(), "count": len(items), "advisories": items})
+    write(
+        "cisa_medical_advisories.json",
+        {"generated": now_iso(), "source": used, "count": len(items), "advisories": items},
+    )
     return len(items)
 
 
@@ -156,7 +196,7 @@ def main() -> int:
             print(f"  ok ({counts[key]} records)")
         except Exception as exc:  # keep going; stale data beats no data
             errors[key] = f"{type(exc).__name__}: {exc}"
-            print(f"  SKIPPED — {errors[key]}", file=sys.stderr)
+            print(f"  SKIPPED - {errors[key]}", file=sys.stderr)
 
     stamp = datetime.now(timezone.utc)
     write(
@@ -170,7 +210,7 @@ def main() -> int:
                 "fda": "openFDA Device Recall API",
                 "cisa": "CISA ICS Medical Advisories",
                 "cms": "CMS Provider Data Catalog (HRRP)",
-                "hhs_ocr": "HHS OCR Breach Portal (manual CSV — no public API)",
+                "hhs_ocr": "HHS OCR Breach Portal (manual CSV - no public API)",
             },
         },
     )
