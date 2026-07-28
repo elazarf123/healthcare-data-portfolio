@@ -1,0 +1,172 @@
+{
+  "generated": "2026-07-28T01:23:50+00:00",
+  "source": "NVD CVE API 2.0 (keyword: medical device)",
+  "count": 20,
+  "by_severity": {
+    "MEDIUM": 9,
+    "HIGH": 8,
+    "CRITICAL": 3
+  },
+  "cves": [
+    {
+      "id": "CVE-2017-14002",
+      "published": "2018-03-20T16:29:00.267",
+      "severity": "CRITICAL",
+      "cvss": 9.8,
+      "summary": "GE Infinia/Infinia with Hawkeye 4 medical imaging systems all current versions are affected these devices use default or hard-coded credentials. Successful exploitation of this vulnerability may allow a remote attacker to bypass authentication and gain access to the affected devi",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-14002"
+    },
+    {
+      "id": "CVE-2017-14006",
+      "published": "2018-03-20T16:29:00.373",
+      "severity": "CRITICAL",
+      "cvss": 9.8,
+      "summary": "GE Xeleris versions 1.0,1.1,2.1,3.0,3.1, medical imaging systems, all current versions are affected, these devices use default or hard-coded credentials. Successful exploitation of this vulnerability may allow a remote attacker to bypass authentication and gain access to the affe",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-14006"
+    },
+    {
+      "id": "CVE-2021-27410",
+      "published": "2021-06-11T17:15:10.770",
+      "severity": "CRITICAL",
+      "cvss": 9.8,
+      "summary": "The affected product is vulnerable to an out-of-bounds write, which may result in corruption of data or code execution on the Welch Allyn medical device management tools (Welch Allyn Service Tool: versions prior to v1.10, Welch Allyn Connex Device Integration Suite \u2013 Network Conn",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2021-27410"
+    },
+    {
+      "id": "CVE-2017-10723",
+      "published": "2019-06-17T22:15:10.200",
+      "severity": "HIGH",
+      "cvss": 8.8,
+      "summary": "Recently it was discovered as a part of the research on IoT devices in the most recent firmware for Shekar Endoscope that an attacker connected to the device Wi-Fi SSID can exploit a memory corruption issue and execute remote code on the device. This device acts as an Endoscope c",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-10723"
+    },
+    {
+      "id": "CVE-2017-10724",
+      "published": "2019-06-17T22:15:10.263",
+      "severity": "HIGH",
+      "cvss": 8.8,
+      "summary": "Recently it was discovered as a part of the research on IoT devices in the most recent firmware for Shekar Endoscope that an attacker connected to the device Wi-Fi SSID can exploit a memory corruption issue and execute remote code on the device. This device acts as an Endoscope c",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-10724"
+    },
+    {
+      "id": "CVE-2017-12718",
+      "published": "2018-02-15T10:29:00.227",
+      "severity": "HIGH",
+      "cvss": 8.1,
+      "summary": "A Classic Buffer Overflow issue was discovered in Smiths Medical Medfusion 4000 Wireless Syringe Infusion Pump, Version 1.1, 1.5, and 1.6. A third-party component used in the pump does not verify input buffer size prior to copying, leading to a buffer overflow, allowing remote co",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-12718"
+    },
+    {
+      "id": "CVE-2019-11687",
+      "published": "2019-05-02T22:29:00.190",
+      "severity": "HIGH",
+      "cvss": 7.8,
+      "summary": "An issue was discovered in the DICOM Part 10 File Format in the NEMA DICOM Standard 1995 through 2019b and continuing in current implementations. The 128-byte preamble of a DICOM file that complies with this specification can contain arbitrary executable headers for multiple oper",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-11687"
+    },
+    {
+      "id": "CVE-2019-5024",
+      "published": "2019-04-11T18:29:00.270",
+      "severity": "HIGH",
+      "cvss": 7.6,
+      "summary": "A restricted environment escape vulnerability exists in the \u201ckiosk mode\u201d function of Capsule Technologies SmartLinx Neuron 2 medical information collection devices running versions 9.0.3 or lower. A specific series of keyboard inputs can escape the restricted environment, resulti",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-5024"
+    },
+    {
+      "id": "CVE-2020-12036",
+      "published": "2020-06-29T14:15:11.460",
+      "severity": "HIGH",
+      "cvss": 7.5,
+      "summary": "Baxter PrismaFlex all versions, PrisMax all versions prior to 3.x, The affected devices do not implement data-in-transit encryption (e.g., TLS/SSL) when configured to send treatment data to a PDMS (Patient Data Management System) or an EMR (Electronic Medical Record) system. An a",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2020-12036"
+    },
+    {
+      "id": "CVE-2020-12037",
+      "published": "2020-06-29T14:15:11.537",
+      "severity": "HIGH",
+      "cvss": 7.5,
+      "summary": "Baxter PrismaFlex all versions, PrisMax all versions prior to 3.x, The affected devices do not implement data-in-transit encryption (e.g., TLS/SSL) when configured to send treatment data to a PDMS (Patient Data Management System) or an EMR (Electronic Medical Record) system. An a",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2020-12037"
+    },
+    {
+      "id": "CVE-2021-27408",
+      "published": "2021-06-11T17:15:10.637",
+      "severity": "HIGH",
+      "cvss": 7.5,
+      "summary": "The affected product is vulnerable to an out-of-bounds read, which can cause information leakage leading to arbitrary code execution if chained to the out-of-bounds write vulnerability on the Welch Allyn medical device management tools (Welch Allyn Service Tool: versions prior to",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2021-27408"
+    },
+    {
+      "id": "CVE-2017-10718",
+      "published": "2019-06-17T22:15:09.903",
+      "severity": "MEDIUM",
+      "cvss": 6.5,
+      "summary": "Recently it was discovered as a part of the research on IoT devices in the most recent firmware for Shekar Endoscope that any malicious user connecting to the device can change the default SSID and password thereby denying the owner an access to his/her own device. This device ac",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-10718"
+    },
+    {
+      "id": "CVE-2017-10719",
+      "published": "2019-06-17T22:15:09.983",
+      "severity": "MEDIUM",
+      "cvss": 6.5,
+      "summary": "Recently it was discovered as a part of the research on IoT devices in the most recent firmware for Shekar Endoscope that the device has default Wi-Fi credentials that are exactly the same for every device. This device acts as an Endoscope camera that allows its users to use it i",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-10719"
+    },
+    {
+      "id": "CVE-2017-10721",
+      "published": "2019-06-17T22:15:10.090",
+      "severity": "MEDIUM",
+      "cvss": 6.5,
+      "summary": "Recently it was discovered as a part of the research on IoT devices in the most recent firmware for Shekar Endoscope that the device has Telnet functionality enabled by default. This device acts as an Endoscope camera that allows its users to use it in various industrial systems ",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-10721"
+    },
+    {
+      "id": "CVE-2025-12699",
+      "published": "2026-02-10T21:15:59.187",
+      "severity": "MEDIUM",
+      "cvss": 5.5,
+      "summary": "The ZOLL ePCR IOS application reflects unsanitized user input into a WebView. Attacker-controlled strings placed into PCR fields (run number, incident, call sign, notes) are interpreted as HTML/JS when the app prints or renders that content. In the proof of concept (POC), injecte",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-12699"
+    },
+    {
+      "id": "CVE-2020-27278",
+      "published": "2021-03-15T22:15:12.873",
+      "severity": "MEDIUM",
+      "cvss": 5.2,
+      "summary": "In Hamilton Medical AG,T1-Ventillator versions 2.2.3 and prior, hard-coded credentials in the ventilator allow attackers with physical access to obtain admin privileges for the device\u2019s configuration interface.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2020-27278"
+    },
+    {
+      "id": "CVE-2023-0888",
+      "published": "2023-03-13T09:15:10.013",
+      "severity": "MEDIUM",
+      "cvss": 4.9,
+      "summary": "An improper neutralization of directives in dynamically evaluated code vulnerability in the WiFi Battery embedded web server in versions L90/U70 and L92/U92 can be used to gain administrative access to the WiFi communication module. An authenticated user, having access to both th",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2023-0888"
+    },
+    {
+      "id": "CVE-2019-18254",
+      "published": "2020-06-29T14:15:10.710",
+      "severity": "MEDIUM",
+      "cvss": 4.6,
+      "summary": "BIOTRONIK CardioMessenger II, The affected products do not encrypt sensitive information while at rest. An attacker with physical access to the CardioMessenger can disclose medical measurement data and the serial number from the implanted cardiac device the CardioMessenger is pai",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-18254"
+    },
+    {
+      "id": "CVE-2020-27282",
+      "published": "2021-03-15T22:15:13.017",
+      "severity": "MEDIUM",
+      "cvss": 4.3,
+      "summary": "In Hamilton Medical AG,T1-Ventillator versions 2.2.3 and prior, an XML validation vulnerability in the ventilator allows privileged attackers with physical access to render the device persistently unusable by uploading specially crafted configuration files.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2020-27282"
+    },
+    {
+      "id": "CVE-2011-3386",
+      "published": "2011-09-02T23:55:05.427",
+      "severity": "MEDIUM",
+      "cvss": 4.0,
+      "summary": "Unspecified vulnerability in Medtronic Paradigm wireless insulin pump 512, 522, 712, and 722 allows remote attackers to modify the delivery of an insulin bolus dose and cause a denial of service (adverse human health effects) via unspecified vectors involving wireless communicati",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2011-3386"
+    }
+  ]
+}
