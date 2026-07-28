@@ -111,7 +111,7 @@ const navy="#14375f", blue="#2f6fb0", red="#c0392b", teal="#1a8a8a", amber="#d98
 Chart.defaults.font.family = "Segoe UI, Helvetica Neue, Arial, sans-serif";
 Chart.defaults.font.size = 11;
 
-new Chart(document.getElementById('barChart'), {
+window.barChartRef = new Chart(document.getElementById('barChart'), {
   type:'bar',
   data:{
     labels:['Heart Failure','Pneumonia','COPD','Acute MI','CABG','Hip/Knee'],
@@ -151,6 +151,63 @@ new Chart(document.getElementById('flagChart'), {
     plugins:{ title:{display:true,text:'Access Events by Risk Flag (n=20)',color:navy,font:{size:12,weight:'bold'}}, legend:{position:'bottom',labels:{boxWidth:12,font:{size:9.5}}} }
   }
 });
+</script>
+
+<!-- Live CMS HRRP benchmark. Refreshed weekly by .github/workflows/update-data.yml
+     from the CMS Provider Data Catalog. Falls back to the published AHRQ/CMS figures
+     already in the chart if the fetch fails or returns nothing usable. -->
+<script>
+(function () {
+  var MEASURES = [
+    "READM-30-HF-HRRP",
+    "READM-30-PN-HRRP",
+    "READM-30-COPD-HRRP",
+    "READM-30-AMI-HRRP",
+    "READM-30-CABG-HRRP",
+    "READM-30-HIP-KNEE-HRRP"
+  ];
+
+  fetch("data/cms_hrrp.json", { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (!d || !d.rows || !window.barChartRef) return;
+
+      var sums = {}, counts = {};
+      d.rows.forEach(function (row) {
+        var m = row.measure_name;
+        var v = parseFloat(row.expected_readmission_rate);
+        if (!m || isNaN(v)) return;
+        sums[m] = (sums[m] || 0) + v;
+        counts[m] = (counts[m] || 0) + 1;
+      });
+
+      var means = MEASURES.map(function (m) {
+        return counts[m] ? Math.round((sums[m] / counts[m]) * 10) / 10 : null;
+      });
+      if (means.some(function (v) { return v === null; })) return;
+
+      var hospitals = Object.keys(counts).reduce(function (n, k) { return Math.max(n, counts[k]); }, 0);
+      var ds = window.barChartRef.data.datasets[1];
+      ds.data = means;
+      ds.label = "CMS expected rate % (live, n=" + hospitals + " hospitals)";
+      window.barChartRef.update();
+
+      var note = document.getElementById("cms-source");
+      if (note) {
+        note.textContent = "Benchmark line computed live from the current CMS HRRP release (" +
+          hospitals + " hospitals per measure).";
+      }
+    })
+    .catch(function () {});
+
+  fetch("data/last_updated.json", { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      var el = document.getElementById("data-updated");
+      if (el && d && d.updated_human) el.textContent = d.updated_human;
+    })
+    .catch(function () {});
+})();
 </script>
 </body>
 </html>
