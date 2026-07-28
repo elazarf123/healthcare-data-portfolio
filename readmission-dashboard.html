@@ -167,35 +167,27 @@ new Chart(document.getElementById('flagChart'), {
     "READM-30-HIP-KNEE-HRRP"
   ];
 
-  fetch("data/cms_hrrp.json", { cache: "no-store" })
+  fetch("data/cms_hrrp_summary.json", { cache: "no-store" })
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (d) {
-      if (!d || !d.rows || !window.barChartRef) return;
-
-      var sums = {}, counts = {};
-      d.rows.forEach(function (row) {
-        var m = row.measure_name;
-        var v = parseFloat(row.expected_readmission_rate);
-        if (!m || isNaN(v)) return;
-        sums[m] = (sums[m] || 0) + v;
-        counts[m] = (counts[m] || 0) + 1;
-      });
+      if (!d || !d.by_measure || !window.barChartRef) return;
 
       var means = MEASURES.map(function (m) {
-        return counts[m] ? Math.round((sums[m] / counts[m]) * 10) / 10 : null;
+        var rec = d.by_measure[m];
+        return rec ? rec.expected_readmission_rate_mean : null;
       });
-      if (means.some(function (v) { return v === null; })) return;
+      if (means.some(function (v) { return v === null || isNaN(v); })) return;  // keep built-ins
 
-      var hospitals = Object.keys(counts).reduce(function (n, k) { return Math.max(n, counts[k]); }, 0);
       var ds = window.barChartRef.data.datasets[1];
       ds.data = means;
-      ds.label = "CMS expected rate % (live, n=" + hospitals + " hospitals)";
+      ds.label = "CMS national expected rate % (live, n=" + d.distinct_facilities + " hospitals)";
       window.barChartRef.update();
 
       var note = document.getElementById("cms-source");
       if (note) {
-        note.textContent = "Benchmark line computed live from the current CMS HRRP release (" +
-          hospitals + " hospitals per measure).";
+        note.textContent = "Benchmark computed live across all " + d.distinct_facilities +
+          " hospitals in the current CMS HRRP release (" +
+          (d.measurement_period ? d.measurement_period.start + " to " + d.measurement_period.end : "") + ").";
       }
     })
     .catch(function () {});
