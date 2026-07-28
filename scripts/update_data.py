@@ -23,6 +23,7 @@ from __future__ import annotations
 import json
 import os
 import ssl
+import time
 import sys
 import urllib.error
 import urllib.parse
@@ -93,42 +94,84 @@ def fetch_fda_recalls(limit: int = 100) -> int:
 
 
 # ---------------------------------------------------------------- NVD
-def fetch_nvd_medical_cves(results: int = 100) -> int:
-    """Medical-device related CVEs from NVD, with CVSS severity breakdown."""
-    q = urllib.parse.urlencode(
-        {"keywordSearch": "medical device", "resultsPerPage": results, "startIndex": 0}
-    )
-    payload = get_json(f"https://services.nvd.nist.gov/rest/json/cves/2.0?{q}")
+MEDICAL_KEYWORDS = (
+    "medical device",
+    "infusion pump",
+    "pacemaker",
+    "patient monitor",
+    "medical imaging",
+)
 
-    rows, severities = [], Counter()
-    for entry in payload.get("vulnerabilities", []):
-        cve = entry.get("cve", {}) or {}
-        desc = ""
-        for d in cve.get("descriptions", []):
-            if d.get("lang") == "en":
-                desc = d.get("value", "")
-                break
 
-        score, severity = None, "UNKNOWN"
-        metrics = cve.get("metrics", {}) or {}
-        for key in ("cvssMetricV31", "cvssMetricV30", "cvssMetricV2"):
-            if metrics.get(key):
-                data = metrics[key][0].get("cvssData", {}) or {}
-                score = data.get("baseScore")
-                severity = data.get("baseSeverity") or metrics[key][0].get("baseSeverity") or "UNKNOWN"
-                break
-        severities[severity] += 1
+def fetch_nvd_medical_cves(per_keyword: int = 50) -> int:
+    """Medical-device CVEs from NVD across several keywords, de-duplicated.
 
-        rows.append(
-            {
-                "id": cve.get("id"),
-                "published": cve.get("published"),
-                "severity": severity,
-                "cvss": score,
-                "summary": desc[:280],
-                "link": f"https://nvd.nist.gov/vuln/detail/{cve.get('id')}",
-            }
+    NVD rate-limits anonymous callers to roughly 5 requests per 30 seconds, so we
+    pause between keywords. Set an NVD_API_KEY repo secret to raise that ceiling.
+    """
+    api_key = os.environ.get("NVD_API_KEY", "").strip()
+    seen, rows, severities = set(), [], Counter()
+    per_keyword_counts = {}
+
+    for idx, keyword in enumerate(MEDICAL_KEYWORDS):
+        if idx:
+            time.sleep(2 if api_key else 7)  # stay under the anonymous rate limit
+
+        q = urllib.parse.urlencode(
+            {"keywordSearch": keyword, "resultsPerPage": per_keyword, "startIndex": 0}
         )
+        url = f"https://services.nvd.nist.gov/rest/json/cves/2.0?{q}"
+
+        try:
+            req = urllib.request.Request(url, headers=dict(UA, **({"apiKey": api_key} if api_key else {})))
+            with urllib.request.urlopen(req, timeout=TIMEOUT, context=CTX) as r:
+                payload = json.loads(r.read().decode("utf-8", "replace"))
+        except Exception as exc:
+            print(f"    keyword {keyword!r} failed: {type(exc).__name__}: {exc}", file=sys.stderr)
+            per_keyword_counts[keyword] = 0
+            continue
+
+        found = 0
+        for entry in payload.get("vulnerabilities", []):
+            cve = entry.get("cve", {}) or {}
+            cve_id = cve.get("id")
+            if not cve_id or cve_id in seen:
+                continue
+            seen.add(cve_id)
+            found += 1
+
+            desc = ""
+            for d in cve.get("descriptions", []):
+                if d.get("lang") == "en":
+                    desc = d.get("value", "")
+                    break
+
+            score, severity = None, "UNKNOWN"
+            metrics = cve.get("metrics", {}) or {}
+            for key in ("cvssMetricV31", "cvssMetricV30", "cvssMetricV2"):
+                if metrics.get(key):
+                    data = metrics[key][0].get("cvssData", {}) or {}
+                    score = data.get("baseScore")
+                    severity = data.get("baseSeverity") or metrics[key][0].get("baseSeverity") or "UNKNOWN"
+                    break
+            severities[severity] += 1
+
+            rows.append(
+                {
+                    "id": cve_id,
+                    "keyword": keyword,
+                    "published": cve.get("published"),
+                    "severity": severity,
+                    "cvss": score,
+                    "summary": desc[:280],
+                    "link": f"https://nvd.nist.gov/vuln/detail/{cve_id}",
+                }
+            )
+        per_keyword_counts[keyword] = found
+        print(f"    {keyword}: {found} new")
+
+    if not rows:
+        raise RuntimeError("NVD returned no CVEs for any keyword")
 
     rows.sort(key=lambda r: (r["cvss"] is None, -(r["cvss"] or 0)))
 
@@ -136,7 +179,9 @@ def fetch_nvd_medical_cves(results: int = 100) -> int:
         "nvd_medical_cves.json",
         {
             "generated": now_iso(),
-            "source": "NVD CVE API 2.0 (keyword: medical device)",
+            "source": "NVD CVE API 2.0",
+            "keywords": list(MEDICAL_KEYWORDS),
+            "per_keyword": per_keyword_counts,
             "count": len(rows),
             "by_severity": dict(severities),
             "cves": rows,
