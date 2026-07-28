@@ -5,9 +5,15 @@ Run by .github/workflows/update-data.yml on a weekly schedule (and on demand).
 Standard library only, so the GitHub Action needs no pip install.
 
 Sources
-  - openFDA Device Recalls .......... https://api.fda.gov/device/recall.json   (public API, no key)
-  - CISA ICS Medical Advisories ..... CISA RSS feeds (WAF requires a browser-like UA)
-  - CMS Provider Data (HRRP) ........ https://data.cms.gov/provider-data/api/1/datastore/query
+  - openFDA Device Recalls .. https://api.fda.gov/device/recall.json   (public API, no key)
+  - NVD CVE API ............. https://services.nvd.nist.gov/rest/json/cves/2.0
+  - CMS Provider Data (HRRP)  https://data.cms.gov/provider-data/api/1/datastore/query
+
+Why NVD instead of CISA: CISA's ICS Medical Advisories RSS sits behind a WAF that
+returns HTTP 403 to datacenter IP ranges, which is what GitHub Actions runners use.
+A browser User-Agent and a fallback URL chain both still 403'd, confirming it is IP
+reputation rather than the agent string. NVD explicitly supports automated access
+and carries CVSS severity, so it is the better automated source.
 
 Writes data/*.json. Any source that fails leaves its previous JSON untouched, so a
 single outage never blanks the dashboards.
@@ -16,31 +22,24 @@ from __future__ import annotations
 
 import json
 import os
-import re
 import ssl
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
-from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 DATA.mkdir(exist_ok=True)
 
-# CISA sits behind a WAF that rejects non-browser agents with HTTP 403, so send a
-# realistic browser UA and Accept header on every request.
 UA = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
-    ),
-    "Accept": "application/rss+xml, application/xml, text/xml, application/json;q=0.9, */*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.9",
+    "User-Agent": "healthcare-data-portfolio/1.0 (+https://github.com/elazarf123)",
+    "Accept": "application/json, text/xml;q=0.9, */*;q=0.8",
 }
-TIMEOUT = 45
+TIMEOUT = 60
 CTX = ssl.create_default_context()
 
 
@@ -60,9 +59,13 @@ def write(name: str, payload) -> None:
     print(f"  wrote {path.relative_to(ROOT)}")
 
 
+def now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
 # ---------------------------------------------------------------- openFDA
 def fetch_fda_recalls(limit: int = 100) -> int:
-    """Recent medical-device recalls, plus counts by recall class."""
+    """Recent medical-device recalls, plus counts by device class."""
     base = "https://api.fda.gov/device/recall.json"
     recalls = get_json(f"{base}?limit={limit}&sort=event_date_initiated:desc")
 
@@ -89,69 +92,65 @@ def fetch_fda_recalls(limit: int = 100) -> int:
     return len(rows)
 
 
-# ---------------------------------------------------------------- CISA
-CISA_FEEDS = (
-    "https://www.cisa.gov/cybersecurity-advisories/ics-medical-advisories.xml",
-    "https://www.cisa.gov/news.xml",
-    "https://www.cisa.gov/uscert/ics/advisories/advisories.xml",
-)
+# ---------------------------------------------------------------- NVD
+def fetch_nvd_medical_cves(results: int = 100) -> int:
+    """Medical-device related CVEs from NVD, with CVSS severity breakdown."""
+    q = urllib.parse.urlencode(
+        {"keywordSearch": "medical device", "resultsPerPage": results, "startIndex": 0}
+    )
+    payload = get_json(f"https://services.nvd.nist.gov/rest/json/cves/2.0?{q}")
 
+    rows, severities = [], Counter()
+    for entry in payload.get("vulnerabilities", []):
+        cve = entry.get("cve", {}) or {}
+        desc = ""
+        for d in cve.get("descriptions", []):
+            if d.get("lang") == "en":
+                desc = d.get("value", "")
+                break
 
-def fetch_cisa_medical_advisories() -> int:
-    """CISA ICS Medical Advisories RSS -> structured JSON.
+        score, severity = None, "UNKNOWN"
+        metrics = cve.get("metrics", {}) or {}
+        for key in ("cvssMetricV31", "cvssMetricV30", "cvssMetricV2"):
+            if metrics.get(key):
+                data = metrics[key][0].get("cvssData", {}) or {}
+                score = data.get("baseScore")
+                severity = data.get("baseSeverity") or metrics[key][0].get("baseSeverity") or "UNKNOWN"
+                break
+        severities[severity] += 1
 
-    Tries each known feed URL in turn; CISA rotates these and fronts them with a WAF.
-    """
-    last_error = None
-    root = None
-    used = None
-
-    for url in CISA_FEEDS:
-        try:
-            root = ElementTree.fromstring(get(url))
-            used = url
-            break
-        except Exception as exc:
-            last_error = f"{url} -> {type(exc).__name__}: {exc}"
-            continue
-
-    if root is None:
-        raise RuntimeError(f"all CISA feeds failed; last: {last_error}")
-
-    items = []
-    for item in root.iter("item"):
-        def txt(tag):
-            el = item.find(tag)
-            return (el.text or "").strip() if el is not None and el.text else ""
-
-        title = txt("title")
-        # the general feeds carry non-medical items too; keep the medical/ICS ones
-        if "ics-medical" not in used and not re.search(r"medical|ICSMA", title, re.I):
-            continue
-
-        desc = re.sub(r"<[^>]+>", "", txt("description"))
-        items.append(
+        rows.append(
             {
-                "title": title,
-                "link": txt("link"),
-                "published": txt("pubDate"),
+                "id": cve.get("id"),
+                "published": cve.get("published"),
+                "severity": severity,
+                "cvss": score,
                 "summary": desc[:280],
+                "link": f"https://nvd.nist.gov/vuln/detail/{cve.get('id')}",
             }
         )
 
+    rows.sort(key=lambda r: (r["cvss"] is None, -(r["cvss"] or 0)))
+
     write(
-        "cisa_medical_advisories.json",
-        {"generated": now_iso(), "source": used, "count": len(items), "advisories": items},
+        "nvd_medical_cves.json",
+        {
+            "generated": now_iso(),
+            "source": "NVD CVE API 2.0 (keyword: medical device)",
+            "count": len(rows),
+            "by_severity": dict(severities),
+            "cves": rows,
+        },
     )
-    return len(items)
+    return len(rows)
 
 
 # ---------------------------------------------------------------- CMS
 def fetch_cms_hrrp() -> int:
-    """CMS Hospital Readmissions Reduction Program national/hospital rows.
+    """CMS Hospital Readmissions Reduction Program rows.
 
     The Provider Data Catalog assigns each dataset a UUID that changes with releases,
-    so we look it up by title first. Set CMS_HRRP_DATASET_ID to pin a specific one.
+    so we look it up by title. Set CMS_HRRP_DATASET_ID to pin a specific one.
     """
     dataset_id = os.environ.get("CMS_HRRP_DATASET_ID", "").strip()
 
@@ -176,18 +175,14 @@ def fetch_cms_hrrp() -> int:
     return len(rows)
 
 
-# ---------------------------------------------------------------- helpers
-def now_iso() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="seconds")
-
-
+# ---------------------------------------------------------------- main
 def main() -> int:
     print("Refreshing portfolio source data...")
     counts, errors = {}, {}
 
     for label, key, fn in (
         ("openFDA device recalls", "fda_recalls", fetch_fda_recalls),
-        ("CISA ICS medical advisories", "cisa_advisories", fetch_cisa_medical_advisories),
+        ("NVD medical-device CVEs", "nvd_medical_cves", fetch_nvd_medical_cves),
         ("CMS HRRP readmissions", "cms_hrrp_rows", fetch_cms_hrrp),
     ):
         print(f"- {label}")
@@ -208,14 +203,15 @@ def main() -> int:
             "errors": errors,
             "sources": {
                 "fda": "openFDA Device Recall API",
-                "cisa": "CISA ICS Medical Advisories",
+                "nvd": "NVD CVE API 2.0 (medical device keyword)",
                 "cms": "CMS Provider Data Catalog (HRRP)",
                 "hhs_ocr": "HHS OCR Breach Portal (manual CSV - no public API)",
+                "cisa": "CISA ICS Medical Advisories (manual - WAF blocks datacenter IPs)",
             },
         },
     )
 
-    if errors and len(errors) == 3:
+    if len(errors) == 3:
         print("All sources failed.", file=sys.stderr)
         return 1
     print("Done.")
