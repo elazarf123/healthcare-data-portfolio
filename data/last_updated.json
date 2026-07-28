@@ -1,12 +1,13 @@
 {
-  "updated": "2026-07-28T01:41:58+00:00",
+  "updated": "2026-07-28T01:54:03+00:00",
   "updated_human": "Jul 28, 2026",
   "counts": {
     "fda_recalls": 100,
-    "nvd_medical_cves": 84,
-    "cms_hrrp_rows": 500
+    "nvd_medical_cves": 84
   },
-  "errors": {},
+  "errors": {
+    "cms_hrrp_rows": "HTTPError: HTTP Error 400: Bad Request"
+  },
   "sources": {
     "fda": "openFDA Device Recall API",
     "nvd": "NVD CVE API 2.0 (medical device keyword)",
