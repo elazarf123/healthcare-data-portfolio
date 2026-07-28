@@ -1,15 +1,40 @@
 {
-  "generated": "2026-07-28T01:23:50+00:00",
-  "source": "NVD CVE API 2.0 (keyword: medical device)",
-  "count": 20,
+  "generated": "2026-07-28T01:41:58+00:00",
+  "source": "NVD CVE API 2.0",
+  "keywords": [
+    "medical device",
+    "infusion pump",
+    "pacemaker",
+    "patient monitor",
+    "medical imaging"
+  ],
+  "per_keyword": {
+    "medical device": 20,
+    "infusion pump": 14,
+    "pacemaker": 16,
+    "patient monitor": 30,
+    "medical imaging": 4
+  },
+  "count": 84,
   "by_severity": {
-    "MEDIUM": 9,
-    "HIGH": 8,
-    "CRITICAL": 3
+    "MEDIUM": 41,
+    "HIGH": 30,
+    "CRITICAL": 9,
+    "LOW": 4
   },
   "cves": [
     {
+      "id": "CVE-2015-3459",
+      "keyword": "infusion pump",
+      "published": "2015-04-29T23:59:00.057",
+      "severity": "HIGH",
+      "cvss": 10.0,
+      "summary": "The communication module on the Hospira LifeCare PCA Infusion System before 7.0 does not require authentication for root TELNET sessions, which allows remote attackers to modify the pump configuration via unspecified commands.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2015-3459"
+    },
+    {
       "id": "CVE-2017-14002",
+      "keyword": "medical device",
       "published": "2018-03-20T16:29:00.267",
       "severity": "CRITICAL",
       "cvss": 9.8,
@@ -18,6 +43,7 @@
     },
     {
       "id": "CVE-2017-14006",
+      "keyword": "medical device",
       "published": "2018-03-20T16:29:00.373",
       "severity": "CRITICAL",
       "cvss": 9.8,
@@ -26,6 +52,7 @@
     },
     {
       "id": "CVE-2021-27410",
+      "keyword": "medical device",
       "published": "2021-06-11T17:15:10.770",
       "severity": "CRITICAL",
       "cvss": 9.8,
@@ -33,7 +60,62 @@
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2021-27410"
     },
     {
+      "id": "CVE-2015-3954",
+      "keyword": "infusion pump",
+      "published": "2019-03-25T17:29:00.670",
+      "severity": "CRITICAL",
+      "cvss": 9.8,
+      "summary": "Hospira Plum A+ Infusion System version 13.4 and prior, Plum A+3 Infusion System version 13.6 and prior, and Symbiq Infusion System, version 3.13 and prior give unauthenticated users root privileges on Port 23/TELNET by default. An unauthorized user could issue commands to the pu",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2015-3954"
+    },
+    {
+      "id": "CVE-2015-3956",
+      "keyword": "infusion pump",
+      "published": "2019-03-25T18:29:00.323",
+      "severity": "CRITICAL",
+      "cvss": 9.8,
+      "summary": "Hospira Plum A+ Infusion System version 13.4 and prior, Plum A+3 Infusion System version 13.6 and prior, and Symbiq Infusion System, version 3.13 and prior accept drug libraries, firmware updates, pump commands, and unauthorized configuration changes from unauthenticated devices ",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2015-3956"
+    },
+    {
+      "id": "CVE-2014-5432",
+      "keyword": "infusion pump",
+      "published": "2019-03-26T16:29:00.290",
+      "severity": "CRITICAL",
+      "cvss": 9.8,
+      "summary": "Baxter SIGMA Spectrum Infusion System version 6.05 (model 35700BAX) with wireless battery module (WBM) version 16 is remotely accessible via Port 22/SSH without authentication. A remote attacker may be able to make unauthorized configuration changes to the WBM, as well as issue c",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2014-5432"
+    },
+    {
+      "id": "CVE-2024-12248",
+      "keyword": "patient monitor",
+      "published": "2025-01-30T19:15:13.390",
+      "severity": "CRITICAL",
+      "cvss": 9.8,
+      "summary": "Contec Health CMS8000 Patient Monitor is vulnerable to an out-of-bounds write, which could allow an attacker to send specially formatted UDP requests in order to write arbitrary data. This could result in remote code execution.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2024-12248"
+    },
+    {
+      "id": "CVE-2017-14101",
+      "keyword": "medical imaging",
+      "published": "2017-12-15T18:29:00.230",
+      "severity": "CRITICAL",
+      "cvss": 9.8,
+      "summary": "A security researcher found an XML External Entity (XXE) vulnerability on the Conserus Image Repository archive solution version 2.1.1.105 by McKesson Medical Imaging Company, which is now a Change Healthcare company. An unauthenticated user supplying a modified HTTP SOAP request",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-14101"
+    },
+    {
+      "id": "CVE-2026-33879",
+      "keyword": "medical imaging",
+      "published": "2026-03-27T21:17:24.537",
+      "severity": "CRITICAL",
+      "cvss": 9.8,
+      "summary": "Federated Learning and Interoperability Platform (FLIP) is an open-source platform for federated training and evaluation of medical imaging AI models across healthcare institutions. The FLIP login page in versions 0.1.1 and prior has no rate limiting or CAPTCHA, enabling brute-fo",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-33879"
+    },
+    {
       "id": "CVE-2017-10723",
+      "keyword": "medical device",
       "published": "2019-06-17T22:15:10.200",
       "severity": "HIGH",
       "cvss": 8.8,
@@ -42,6 +124,7 @@
     },
     {
       "id": "CVE-2017-10724",
+      "keyword": "medical device",
       "published": "2019-06-17T22:15:10.263",
       "severity": "HIGH",
       "cvss": 8.8,
@@ -49,7 +132,89 @@
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-10724"
     },
     {
+      "id": "CVE-2017-12712",
+      "keyword": "pacemaker",
+      "published": "2018-04-25T13:29:00.227",
+      "severity": "HIGH",
+      "cvss": 8.8,
+      "summary": "The authentication algorithm in Abbott Laboratories pacemakers manufactured prior to Aug 28, 2017, which involves an authentication key and time stamp, can be compromised or bypassed, which may allow a nearby attacker to issue unauthorized commands to the pacemaker via RF communi",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-12712"
+    },
+    {
+      "id": "CVE-2016-7035",
+      "keyword": "pacemaker",
+      "published": "2018-09-10T16:29:00.247",
+      "severity": "HIGH",
+      "cvss": 8.8,
+      "summary": "An authorization flaw was found in Pacemaker before 1.1.16, where it did not properly guard its IPC interface. An attacker with an unprivileged account on a Pacemaker node could use this flaw to, for example, force the Local Resource Manager daemon to execute a script as root and",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2016-7035"
+    },
+    {
+      "id": "CVE-2022-1049",
+      "keyword": "pacemaker",
+      "published": "2022-03-25T19:15:10.577",
+      "severity": "HIGH",
+      "cvss": 8.8,
+      "summary": "A flaw was found in the Pacemaker configuration tool (pcs). The pcs daemon was allowing expired accounts, and accounts with expired passwords to login when using PAM authentication. Therefore, unprivileged expired accounts that have been denied access could still login.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2022-1049"
+    },
+    {
+      "id": "CVE-2026-10649",
+      "keyword": "pacemaker",
+      "published": "2026-06-16T17:16:30.773",
+      "severity": "HIGH",
+      "cvss": 8.6,
+      "summary": "A flaw was found in Pacemaker. An unauthenticated remote attacker can exploit an integer overflow vulnerability in the remote message decompression process. By sending a specially crafted compressed remote message before authentication, an attacker can cause memory corruption, le",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-10649"
+    },
+    {
+      "id": "CVE-2019-25719",
+      "keyword": "patient monitor",
+      "published": "2026-06-02T14:16:25.627",
+      "severity": "HIGH",
+      "cvss": 8.6,
+      "summary": "Dr\u00e4ger Infinity Acute Care System and Standalone Infinity M540 patient monitors running software versions VG4.1.1, VG4.0.3, and lower contain network message handling vulnerabilities that allow network-adjacent attackers to spoof or tamper with data and cause denial-of-service co",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-25719"
+    },
+    {
+      "id": "CVE-2022-4992",
+      "keyword": "patient monitor",
+      "published": "2026-06-02T22:16:15.660",
+      "severity": "HIGH",
+      "cvss": 8.6,
+      "summary": "Dr\u00e4ger Infinity Acute Care System and Standalone Infinity M540 patient monitors versions VG4.1.1, VG4.0.3, and lower (with VG4.2 partially affected) contain a network message handling vulnerability that allows remote attackers to inject spoofed or tampered data and cause denial-o",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2022-4992"
+    },
+    {
+      "id": "CVE-2019-25718",
+      "keyword": "patient monitor",
+      "published": "2026-06-01T23:16:13.270",
+      "severity": "HIGH",
+      "cvss": 8.4,
+      "summary": "Dr\u00e4ger Infinity Explorer C700 contains a privilege escalation vulnerability that allows attackers to break out of kiosk mode and access the underlying operating system through a specific dialog interaction. Attackers can exploit this kiosk escape to take control of the operating ",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-25718"
+    },
+    {
+      "id": "CVE-2018-10597",
+      "keyword": "patient monitor",
+      "published": "2018-06-05T20:29:00.827",
+      "severity": "HIGH",
+      "cvss": 8.3,
+      "summary": "IntelliVue Patient Monitors MP Series (including MP2/X2/MP30/MP50/MP70/NP90/MX700/800) Rev B-M, IntelliVue Patient Monitors MX (MX400-550) Rev J-M and (X3/MX100 for Rev M only), and Avalon Fetal/Maternal Monitors FM20/FM30/FM40/FM50 with software Revisions F.0, G.0 and J.3 have a",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2018-10597"
+    },
+    {
+      "id": "CVE-2018-10601",
+      "keyword": "patient monitor",
+      "published": "2018-06-05T20:29:00.903",
+      "severity": "HIGH",
+      "cvss": 8.2,
+      "summary": "IntelliVue Patient Monitors MP Series (including MP2/X2/MP30/MP50/MP70/NP90/MX700/800) Rev B-M, IntelliVue Patient Monitors MX (MX400-550) Rev J-M and (X3/MX100 for Rev M only), and Avalon Fetal/Maternal Monitors FM20/FM30/FM40/FM50 with software Revisions F.0, G.0 and J.3 have a",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2018-10601"
+    },
+    {
       "id": "CVE-2017-12718",
+      "keyword": "medical device",
       "published": "2018-02-15T10:29:00.227",
       "severity": "HIGH",
       "cvss": 8.1,
@@ -57,7 +222,35 @@
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-12718"
     },
     {
+      "id": "CVE-2017-12720",
+      "keyword": "infusion pump",
+      "published": "2018-02-15T10:29:00.273",
+      "severity": "HIGH",
+      "cvss": 8.1,
+      "summary": "An Improper Access Control issue was discovered in Smiths Medical Medfusion 4000 Wireless Syringe Infusion Pump, Version 1.1, 1.5, and 1.6. The FTP server on the pump does not require authentication if the pump is configured to allow FTP connections.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-12720"
+    },
+    {
+      "id": "CVE-2017-12724",
+      "keyword": "infusion pump",
+      "published": "2018-02-15T10:29:00.477",
+      "severity": "HIGH",
+      "cvss": 8.1,
+      "summary": "A Use of Hard-coded Credentials issue was discovered in Smiths Medical Medfusion 4000 Wireless Syringe Infusion Pump, Version 1.1, 1.5, and 1.6. The FTP server on the pump contains hardcoded credentials, which are not fully initialized. The FTP server is only accessible if the pu",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-12724"
+    },
+    {
+      "id": "CVE-2017-16776",
+      "keyword": "medical imaging",
+      "published": "2017-12-15T18:29:00.277",
+      "severity": "HIGH",
+      "cvss": 8.1,
+      "summary": "Security researchers discovered an authentication bypass vulnerability in version 2.0.2 of the Conserus Workflow Intelligence application by McKesson Medical Imaging Company, which is now a Change Healthcare company. The attacker must send a malicious HTTP GET request to exploit ",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-16776"
+    },
+    {
       "id": "CVE-2019-11687",
+      "keyword": "medical device",
       "published": "2019-05-02T22:29:00.190",
       "severity": "HIGH",
       "cvss": 7.8,
@@ -65,7 +258,26 @@
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-11687"
     },
     {
+      "id": "CVE-2018-16877",
+      "keyword": "pacemaker",
+      "published": "2019-04-18T18:29:00.297",
+      "severity": "HIGH",
+      "cvss": 7.8,
+      "summary": "A flaw was found in the way pacemaker's client-server authentication was implemented in versions up to and including 2.0.0. A local attacker could use this flaw, and combine it with other IPC weaknesses, to achieve local privilege escalation.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2018-16877"
+    },
+    {
+      "id": "CVE-2017-13993",
+      "keyword": "patient monitor",
+      "published": "2017-10-05T01:29:05.197",
+      "severity": "HIGH",
+      "cvss": 7.8,
+      "summary": "An Uncontrolled Search Path or Element issue was discovered in i-SENS SmartLog Diabetes Management Software, Version 2.4.0 and prior versions. An uncontrolled search path element vulnerability has been identified which could be exploited by placing a specially crafted DLL file in",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-13993"
+    },
+    {
       "id": "CVE-2019-5024",
+      "keyword": "medical device",
       "published": "2019-04-11T18:29:00.270",
       "severity": "HIGH",
       "cvss": 7.6,
@@ -73,7 +285,17 @@
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-5024"
     },
     {
+      "id": "CVE-2019-25722",
+      "keyword": "patient monitor",
+      "published": "2026-06-02T20:16:23.690",
+      "severity": "HIGH",
+      "cvss": 7.6,
+      "summary": "Dr\u00e4ger SC Monitoring devices (SC 6002XL, SC 6802XL, SC 7000, SC 8000, SC 9000 XL) contain hard-coded plaintext credentials in source code and a denial-of-service vulnerability that allows local and remote attackers to compromise device integrity across all software versions. A lo",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-25722"
+    },
+    {
       "id": "CVE-2020-12036",
+      "keyword": "medical device",
       "published": "2020-06-29T14:15:11.460",
       "severity": "HIGH",
       "cvss": 7.5,
@@ -82,6 +304,7 @@
     },
     {
       "id": "CVE-2020-12037",
+      "keyword": "medical device",
       "published": "2020-06-29T14:15:11.537",
       "severity": "HIGH",
       "cvss": 7.5,
@@ -90,6 +313,7 @@
     },
     {
       "id": "CVE-2021-27408",
+      "keyword": "medical device",
       "published": "2021-06-11T17:15:10.637",
       "severity": "HIGH",
       "cvss": 7.5,
@@ -97,7 +321,107 @@
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2021-27408"
     },
     {
+      "id": "CVE-2015-1867",
+      "keyword": "pacemaker",
+      "published": "2015-08-12T14:59:06.620",
+      "severity": "HIGH",
+      "cvss": 7.5,
+      "summary": "Pacemaker before 1.1.13 does not properly evaluate added nodes, which allows remote read-only users to gain privileges via an acl command.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2015-1867"
+    },
+    {
+      "id": "CVE-2016-7797",
+      "keyword": "pacemaker",
+      "published": "2017-03-24T15:59:00.717",
+      "severity": "HIGH",
+      "cvss": 7.5,
+      "summary": "Pacemaker before 1.1.15, when using pacemaker remote, might allow remote attackers to cause a denial of service (node disconnection) via an unauthenticated connection.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2016-7797"
+    },
+    {
+      "id": "CVE-2017-12726",
+      "keyword": "infusion pump",
+      "published": "2018-02-15T10:29:00.570",
+      "severity": "HIGH",
+      "cvss": 7.3,
+      "summary": "A Use of Hard-coded Password issue was discovered in Smiths Medical Medfusion 4000 Wireless Syringe Infusion Pump, Version 1.1, 1.5, and 1.6. Telnet on the pump uses hardcoded credentials, which can be used if the pump is configured to allow external communications. Smiths Medica",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-12726"
+    },
+    {
+      "id": "CVE-2020-25654",
+      "keyword": "pacemaker",
+      "published": "2020-11-24T20:15:11.790",
+      "severity": "HIGH",
+      "cvss": 7.2,
+      "summary": "An ACL bypass flaw was found in pacemaker. An attacker having a local account on the cluster and in the haclient group could use IPC communication with various daemons directly to perform certain tasks that they would be prevented by ACLs from doing if they went through the confi",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2020-25654"
+    },
+    {
+      "id": "CVE-2019-13530",
+      "keyword": "patient monitor",
+      "published": "2019-09-12T20:15:11.647",
+      "severity": "HIGH",
+      "cvss": 7.2,
+      "summary": "Philips IntelliVue WLAN, portable patient monitors, WLAN Version A, Firmware A.03.09, WLAN Version A, Firmware A.03.09, Part #: M8096-67501, WLAN Version B, Firmware A.01.09, Part #: N/A (Replaced by Version C) and WLAN Version B, Firmware A.01.09, Part #: N/A (Replaced by Versio",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-13530"
+    },
+    {
+      "id": "CVE-2019-13534",
+      "keyword": "patient monitor",
+      "published": "2019-09-12T20:15:11.727",
+      "severity": "HIGH",
+      "cvss": 7.2,
+      "summary": "Philips IntelliVue WLAN, portable patient monitors, WLAN Version A, Firmware A.03.09, WLAN Version A, Firmware A.03.09, Part #: M8096-67501, WLAN Version B, Firmware A.01.09, Part #: N/A (Replaced by Version C) and WLAN Version B, Firmware A.01.09, Part #: N/A (Replaced by Versio",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-13534"
+    },
+    {
+      "id": "CVE-2014-5403",
+      "keyword": "infusion pump",
+      "published": "2015-04-03T10:59:01.227",
+      "severity": "MEDIUM",
+      "cvss": 6.8,
+      "summary": "Hospira MedNet before 6.1 uses hardcoded cryptographic keys for protection of data transmission from infusion pumps, which allows remote attackers to obtain sensitive information by sniffing the network.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2014-5403"
+    },
+    {
+      "id": "CVE-2025-4394",
+      "keyword": "patient monitor",
+      "published": "2025-07-24T07:15:53.490",
+      "severity": "MEDIUM",
+      "cvss": 6.8,
+      "summary": "Medtronic MyCareLink Patient Monitor uses an unencrypted filesystem on internal storage, which allows an attacker with physical access to read and modify files. \n\nThis issue affects MyCareLink Patient Monitor models 24950 and 24952: before June 25, 2025",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-4394"
+    },
+    {
+      "id": "CVE-2025-4395",
+      "keyword": "patient monitor",
+      "published": "2025-07-24T07:15:53.660",
+      "severity": "MEDIUM",
+      "cvss": 6.8,
+      "summary": "Medtronic MyCareLink Patient Monitor has a built-in user account with an empty password, which allows an attacker with physical access to log in with no password and access modify system functionality. \n\nThis issue affects MyCareLink Patient Monitor models 24950 and 24952: before",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-4395"
+    },
+    {
+      "id": "CVE-2025-4386",
+      "keyword": "patient monitor",
+      "published": "2026-05-07T16:16:17.287",
+      "severity": "MEDIUM",
+      "cvss": 6.8,
+      "summary": "Medtronic MyCareLink Patient Monitor has an internal serial interface, which allows an attacker with physical access to access a login prompt via a UART terminal.\u200b",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-4386"
+    },
+    {
+      "id": "CVE-2025-4397",
+      "keyword": "patient monitor",
+      "published": "2026-05-07T16:16:17.410",
+      "severity": "MEDIUM",
+      "cvss": 6.8,
+      "summary": "Medtronic MyCareLink Patient Monitor uses per-product credentials that are stored in a recoverable format. An attacker can use these credentials to modify encrypted drive data.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-4397"
+    },
+    {
       "id": "CVE-2017-10718",
+      "keyword": "medical device",
       "published": "2019-06-17T22:15:09.903",
       "severity": "MEDIUM",
       "cvss": 6.5,
@@ -106,6 +430,7 @@
     },
     {
       "id": "CVE-2017-10719",
+      "keyword": "medical device",
       "published": "2019-06-17T22:15:09.983",
       "severity": "MEDIUM",
       "cvss": 6.5,
@@ -114,6 +439,7 @@
     },
     {
       "id": "CVE-2017-10721",
+      "keyword": "medical device",
       "published": "2019-06-17T22:15:10.090",
       "severity": "MEDIUM",
       "cvss": 6.5,
@@ -121,7 +447,152 @@
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-10721"
     },
     {
+      "id": "CVE-2017-12714",
+      "keyword": "pacemaker",
+      "published": "2018-04-25T13:29:00.287",
+      "severity": "MEDIUM",
+      "cvss": 6.5,
+      "summary": "Abbott Laboratories pacemakers manufactured prior to Aug 28, 2017 do not restrict or limit the number of correctly formatted \"RF wake-up\" commands that can be received, which may allow a nearby attacker to repeatedly send commands to reduce pacemaker battery life. CVSS v3 base sc",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-12714"
+    },
+    {
+      "id": "CVE-2017-12716",
+      "keyword": "pacemaker",
+      "published": "2018-04-25T13:29:00.333",
+      "severity": "MEDIUM",
+      "cvss": 6.5,
+      "summary": "Abbott Laboratories Accent and Anthem pacemakers manufactured prior to Aug 28, 2017 transmit unencrypted patient information via RF communications to programmers and home monitoring units. Additionally, the Accent and Anthem pacemakers store the optional patient information witho",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-12716"
+    },
+    {
+      "id": "CVE-2017-9657",
+      "keyword": "patient monitor",
+      "published": "2018-04-30T15:29:00.163",
+      "severity": "MEDIUM",
+      "cvss": 6.5,
+      "summary": "Under specific 802.11 network conditions, a partial re-association of the Philips IntelliVue MX40 Version B.06.18 WLAN monitor to the central monitoring station is possible. In this state, the central monitoring station can indicate the MX40 is not connected or associated to the ",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-9657"
+    },
+    {
+      "id": "CVE-2018-19010",
+      "keyword": "patient monitor",
+      "published": "2019-01-28T22:29:00.350",
+      "severity": "MEDIUM",
+      "cvss": 6.5,
+      "summary": "Drager Infinity Delta, Infinity Delta, all versions, Delta XL, all versions, Kappa, all version, and Infinity Explorer C700, all versions. A malformed network packet may cause the monitor to reboot. By repeatedly sending the malformed network packet, an attacker may be able to di",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2018-19010"
+    },
+    {
+      "id": "CVE-2018-19014",
+      "keyword": "patient monitor",
+      "published": "2019-01-28T22:29:00.397",
+      "severity": "MEDIUM",
+      "cvss": 6.5,
+      "summary": "Drager Infinity Delta, Infinity Delta, all versions, Delta XL, all versions, Kappa, all version, and Infinity Explorer C700, all versions. Log files are accessible over an unauthenticated network connection. By accessing the log files, an attacker is able to gain insights about i",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2018-19014"
+    },
+    {
+      "id": "CVE-2020-16216",
+      "keyword": "patient monitor",
+      "published": "2020-09-11T14:15:11.440",
+      "severity": "MEDIUM",
+      "cvss": 6.5,
+      "summary": "In IntelliVue patient monitors MX100, MX400-550, MX600, MX700, MX750, \nMX800, MX850, MP2-MP90, and IntelliVue X2 and X3 Versions N and prior, \nthe product receives input or data but does not validate or incorrectly \nvalidates that the input has the properties required to process ",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2020-16216"
+    },
+    {
+      "id": "CVE-2025-4393",
+      "keyword": "patient monitor",
+      "published": "2025-07-24T07:15:53.343",
+      "severity": "MEDIUM",
+      "cvss": 6.5,
+      "summary": "Medtronic MyCareLink Patient Monitor has an internal service that deserializes data, which allows a local attacker to interact with the service by crafting a binary payload to crash the service or elevate privileges. \n\nThis issue affects MyCareLink Patient Monitor models 24950 an",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-4393"
+    },
+    {
+      "id": "CVE-2019-25716",
+      "keyword": "patient monitor",
+      "published": "2026-06-01T22:16:17.170",
+      "severity": "MEDIUM",
+      "cvss": 6.5,
+      "summary": "Dr\u00e4ger Infinity Delta, Delta XL, and Kappa patient monitors contain a denial-of-service vulnerability that allows remote attackers to cause the monitor to reboot by sending a malformed network packet. Attackers can repeatedly send malformed network packets to disrupt patient moni",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-25716"
+    },
+    {
+      "id": "CVE-2019-25721",
+      "keyword": "patient monitor",
+      "published": "2026-06-02T20:16:23.557",
+      "severity": "MEDIUM",
+      "cvss": 6.5,
+      "summary": "Dr\u00e4ger Infinity M300 patient worn monitors with software version VG2.3.1 and earlier contain a network-based denial of service vulnerability that allows network-adjacent attackers to repeatedly trigger device reboots by sending malicious requests over the Infinity Network. Attack",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-25721"
+    },
+    {
+      "id": "CVE-2019-25724",
+      "keyword": "patient monitor",
+      "published": "2026-06-02T20:16:23.960",
+      "severity": "MEDIUM",
+      "cvss": 6.5,
+      "summary": "Dr\u00e4ger Infinity M300 patient worn monitors with software version VG2.x and earlier contain a network-based denial of service vulnerability that allows attackers with access to the hospital or Infinity Network to repeatedly trigger device reboots until the device enters a fail sta",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-25724"
+    },
+    {
+      "id": "CVE-2019-25720",
+      "keyword": "patient monitor",
+      "published": "2026-06-03T18:16:15.910",
+      "severity": "MEDIUM",
+      "cvss": 6.5,
+      "summary": "Dr\u00e4ger SC Monitoring devices (SC 6002XL, SC 6802XL, SC 7000, SC 8000, SC 9000 XL) contain a denial-of-service vulnerability in all software versions that allows unauthenticated attackers to reboot the monitor by sending a malformed network packet. Attackers can repeatedly send su",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-25720"
+    },
+    {
+      "id": "CVE-2022-38765",
+      "keyword": "medical imaging",
+      "published": "2022-12-09T00:15:10.063",
+      "severity": "MEDIUM",
+      "cvss": 6.5,
+      "summary": "Canon Medical Informatics Vitrea Vision 7.7.76.1 does not adequately enforce access controls. An authenticated user is able to gain unauthorized access to imaging records by tampering with the vitrea-view/studies/search patientId parameter.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2022-38765"
+    },
+    {
+      "id": "CVE-2020-16228",
+      "keyword": "patient monitor",
+      "published": "2020-09-11T13:15:11.377",
+      "severity": "MEDIUM",
+      "cvss": 6.4,
+      "summary": "In Patient Information Center iX (PICiX) Versions C.02 and C.03, \nPerformanceBridge Focal Point Version A.01, IntelliVue patient monitors \nMX100, MX400-MX550, MX750, MX850, and IntelliVue X3 Versions N and \nprior, the software does not check or incorrectly checks the revocation \n",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2020-16228"
+    },
+    {
+      "id": "CVE-2017-12721",
+      "keyword": "infusion pump",
+      "published": "2018-02-15T10:29:00.320",
+      "severity": "MEDIUM",
+      "cvss": 5.9,
+      "summary": "An Improper Certificate Validation issue was discovered in Smiths Medical Medfusion 4000 Wireless Syringe Infusion Pump, Version 1.1, 1.5, and 1.6. The pump does not validate host certificates, leaving the pump vulnerable to a man-in-the-middle (MITM) attack.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-12721"
+    },
+    {
+      "id": "CVE-2025-0683",
+      "keyword": "patient monitor",
+      "published": "2025-01-30T19:15:14.460",
+      "severity": "MEDIUM",
+      "cvss": 5.9,
+      "summary": "In its default configuration, Contec Health CMS8000 Patient Monitor transmits plain-text \npatient data to a hard-coded public IP address when a patient is hooked \nup to the monitor. This could lead to a leakage of confidential patient \ndata to any device with that IP address or a",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-0683"
+    },
+    {
+      "id": "CVE-2017-12725",
+      "keyword": "infusion pump",
+      "published": "2018-02-15T10:29:00.523",
+      "severity": "MEDIUM",
+      "cvss": 5.6,
+      "summary": "A Use of Hard-coded Credentials issue was discovered in Smiths Medical Medfusion 4000 Wireless Syringe Infusion Pump, Version 1.1, 1.5, and 1.6. The pump with default network configuration uses hard-coded credentials to automatically establish a wireless network connection. The p",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-12725"
+    },
+    {
       "id": "CVE-2025-12699",
+      "keyword": "medical device",
       "published": "2026-02-10T21:15:59.187",
       "severity": "MEDIUM",
       "cvss": 5.5,
@@ -129,7 +600,62 @@
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2025-12699"
     },
     {
+      "id": "CVE-2018-16878",
+      "keyword": "pacemaker",
+      "published": "2019-04-18T18:29:00.390",
+      "severity": "MEDIUM",
+      "cvss": 5.5,
+      "summary": "A flaw was found in pacemaker up to and including version 2.0.1. An insufficient verification inflicted preference of uncontrolled processes can lead to DoS",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2018-16878"
+    },
+    {
+      "id": "CVE-2011-5271",
+      "keyword": "pacemaker",
+      "published": "2019-11-12T14:15:11.013",
+      "severity": "MEDIUM",
+      "cvss": 5.5,
+      "summary": "Pacemaker before 1.1.6 configure script creates temporary files insecurely",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2011-5271"
+    },
+    {
+      "id": "CVE-2010-2496",
+      "keyword": "pacemaker",
+      "published": "2021-10-18T13:15:08.927",
+      "severity": "MEDIUM",
+      "cvss": 5.5,
+      "summary": "stonith-ng in pacemaker and cluster-glue passed passwords as commandline parameters, making it possible for local attackers to gain access to passwords of the HA stack and potentially influence its operations. This is fixed in cluster-glue 1.0.6 and newer, and pacemaker 1.1.3 and",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2010-2496"
+    },
+    {
+      "id": "CVE-2017-12722",
+      "keyword": "infusion pump",
+      "published": "2018-02-15T10:29:00.383",
+      "severity": "MEDIUM",
+      "cvss": 5.3,
+      "summary": "An Out-of-bounds Read issue was discovered in Smiths Medical Medfusion 4000 Wireless Syringe Infusion Pump, Version 1.1, 1.5, and 1.6. A third-party component used in the pump reads memory out of bounds, causing the communications module to crash. Smiths Medical assesses that the",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-12722"
+    },
+    {
+      "id": "CVE-2022-43557",
+      "keyword": "infusion pump",
+      "published": "2022-12-05T22:15:11.157",
+      "severity": "MEDIUM",
+      "cvss": 5.3,
+      "summary": "The BD BodyGuard\u2122 infusion pumps specified allow for access through the RS-232\u00a0(serial) port interface. If exploited, threat actors with physical access, specialized equipment and\u00a0knowledge may be able to configure or disable the pump. No electronic protected health information\u00a0(",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2022-43557"
+    },
+    {
+      "id": "CVE-2018-10599",
+      "keyword": "patient monitor",
+      "published": "2018-06-05T20:29:00.873",
+      "severity": "MEDIUM",
+      "cvss": 5.3,
+      "summary": "IntelliVue Patient Monitors MP Series (including MP2/X2/MP30/MP50/MP70/NP90/MX700/800) Rev B-M, IntelliVue Patient Monitors MX (MX400-550) Rev J-M and (X3/MX100 for Rev M only), and Avalon Fetal/Maternal Monitors FM20/FM30/FM40/FM50 with software Revisions F.0, G.0 and J.3 have a",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2018-10599"
+    },
+    {
       "id": "CVE-2020-27278",
+      "keyword": "medical device",
       "published": "2021-03-15T22:15:12.873",
       "severity": "MEDIUM",
       "cvss": 5.2,
@@ -137,7 +663,17 @@
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2020-27278"
     },
     {
+      "id": "CVE-2018-10622",
+      "keyword": "patient monitor",
+      "published": "2018-08-10T18:29:00.230",
+      "severity": "MEDIUM",
+      "cvss": 5.2,
+      "summary": "Medtronic MyCareLink Patient Monitor uses per-product credentials that are stored in a recoverable format. An attacker can use these credentials for network authentication.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2018-10622"
+    },
+    {
       "id": "CVE-2023-0888",
+      "keyword": "medical device",
       "published": "2023-03-13T09:15:10.013",
       "severity": "MEDIUM",
       "cvss": 4.9,
@@ -146,6 +682,7 @@
     },
     {
       "id": "CVE-2019-18254",
+      "keyword": "medical device",
       "published": "2020-06-29T14:15:10.710",
       "severity": "MEDIUM",
       "cvss": 4.6,
@@ -153,7 +690,17 @@
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-18254"
     },
     {
+      "id": "CVE-2018-10626",
+      "keyword": "patient monitor",
+      "published": "2018-08-10T18:29:00.353",
+      "severity": "MEDIUM",
+      "cvss": 4.4,
+      "summary": "Medtronic MyCareLink Patient Monitor\u2019s update service\u00a0does not sufficiently verify the authenticity of the data uploaded. An \nattacker who obtains per-product credentials from the monitor and paired\n implantable cardiac device information can potentially upload invalid \ndata to t",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2018-10626"
+    },
+    {
       "id": "CVE-2020-27282",
+      "keyword": "medical device",
       "published": "2021-03-15T22:15:13.017",
       "severity": "MEDIUM",
       "cvss": 4.3,
@@ -161,12 +708,76 @@
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2020-27282"
     },
     {
+      "id": "CVE-2013-0281",
+      "keyword": "pacemaker",
+      "published": "2013-11-23T11:55:04.287",
+      "severity": "MEDIUM",
+      "cvss": 4.3,
+      "summary": "Pacemaker 1.1.10, when remote Cluster Information Base (CIB) configuration or resource management is enabled, does not limit the duration of connections to the blocking sockets, which allows remote attackers to cause a denial of service (connection blocking).",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2013-0281"
+    },
+    {
+      "id": "CVE-2020-16220",
+      "keyword": "patient monitor",
+      "published": "2020-09-11T14:15:11.503",
+      "severity": "MEDIUM",
+      "cvss": 4.3,
+      "summary": "In Patient Information Center iX (PICiX) Versions C.02, C.03, \nPerformanceBridge Focal Point Version A.01, the product receives input \nthat is expected to be well-formed (i.e., to comply with a certain \nsyntax) but it does not validate or incorrectly validates that the input\n com",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2020-16220"
+    },
+    {
+      "id": "CVE-2019-25717",
+      "keyword": "patient monitor",
+      "published": "2026-06-02T14:16:24.953",
+      "severity": "MEDIUM",
+      "cvss": 4.3,
+      "summary": "Dr\u00e4ger Infinity Delta, Delta XL, and Kappa patient monitors contain an information disclosure vulnerability that allows unauthenticated network attackers to access log files over a network connection. Attackers can retrieve device internals, location information, and wired networ",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-25717"
+    },
+    {
       "id": "CVE-2011-3386",
+      "keyword": "medical device",
       "published": "2011-09-02T23:55:05.427",
       "severity": "MEDIUM",
       "cvss": 4.0,
       "summary": "Unspecified vulnerability in Medtronic Paradigm wireless insulin pump 512, 522, 712, and 722 allows remote attackers to modify the delivery of an insulin bolus dose and cause a denial of service (adverse human health effects) via unspecified vectors involving wireless communicati",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2011-3386"
+    },
+    {
+      "id": "CVE-2017-12723",
+      "keyword": "infusion pump",
+      "published": "2018-02-15T10:29:00.430",
+      "severity": "LOW",
+      "cvss": 3.7,
+      "summary": "A Password in Configuration File issue was discovered in Smiths Medical Medfusion 4000 Wireless Syringe Infusion Pump, Version 1.1, 1.5, and 1.6. The pump stores some passwords in the configuration file, which are accessible if the pump is configured to allow external communicati",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-12723"
+    },
+    {
+      "id": "CVE-2019-3885",
+      "keyword": "pacemaker",
+      "published": "2019-04-18T18:29:01.033",
+      "severity": "LOW",
+      "cvss": 3.3,
+      "summary": "A use-after-free flaw was found in pacemaker up to and including version 2.0.1 which could result in certain sensitive information to be leaked via the system logs.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2019-3885"
+    },
+    {
+      "id": "CVE-2020-12039",
+      "keyword": "infusion pump",
+      "published": "2020-06-29T14:15:11.617",
+      "severity": "LOW",
+      "cvss": 2.4,
+      "summary": "Baxter Sigma Spectrum Infusion Pumps Sigma Spectrum Infusion System v's6.x model 35700BAX & Baxter Spectrum Infusion System v's8.x model 35700BAX2 contain hardcoded passwords when physically entered on the keypad provide access to biomedical menus including device settings, view ",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2020-12039"
+    },
+    {
+      "id": "CVE-2018-19638",
+      "keyword": "pacemaker",
+      "published": "2019-03-05T16:29:00.387",
+      "severity": "LOW",
+      "cvss": 2.2,
+      "summary": "In supportutils, before version 3.1-5.7.1 and if pacemaker is installed on the system, an unprivileged user could have overwritten arbitrary files in the directory that is used by supportutils to collect the log files.",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2018-19638"
     }
   ]
 }
