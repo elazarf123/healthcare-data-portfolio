@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-03T13:44:39+00:00",
+  "generated": "2026-08-10T11:51:48+00:00",
   "source": "NVD CVE API 2.0",
   "keywords": [
     "medical device",
@@ -12,14 +12,14 @@
     "medical device": 20,
     "infusion pump": 14,
     "pacemaker": 16,
-    "patient monitor": 30,
+    "patient monitor": 31,
     "medical imaging": 4
   },
-  "count": 84,
+  "count": 85,
   "by_severity": {
     "MEDIUM": 41,
     "HIGH": 30,
-    "CRITICAL": 9,
+    "CRITICAL": 10,
     "LOW": 4
   },
   "cves": [
@@ -112,6 +112,15 @@
       "cvss": 9.8,
       "summary": "Federated Learning and Interoperability Platform (FLIP) is an open-source platform for federated training and evaluation of medical imaging AI models across healthcare institutions. The FLIP login page in versions 0.1.1 and prior has no rate limiting or CAPTCHA, enabling brute-fo",
       "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-33879"
+    },
+    {
+      "id": "CVE-2026-48088",
+      "keyword": "patient monitor",
+      "published": "2026-08-06T22:17:11.893",
+      "severity": "CRITICAL",
+      "cvss": 9.4,
+      "summary": "OpenReception's appointment booking software provides an end-to-end encrypted appointment booking platform. Prior to version 1.0.4, the route `POST /api/tenants/{tenantId}/staff/{staffId}/crypto` accepts and stores attacker-controlled ML-KEM-768 public keys against any tenant on ",
+      "link": "https://nvd.nist.gov/vuln/detail/CVE-2026-48088"
     },
     {
       "id": "CVE-2017-10723",

@@ -1,7 +1,23 @@
 {
-  "generated": "2026-08-03T13:44:02+00:00",
+  "generated": "2026-08-10T11:51:19+00:00",
   "count": 100,
   "recalls": [
+    {
+      "firm": "Biofire Defense",
+      "product": "FilmArray NGDS Warrior Panel REF NGDS-ASY-0007\r\nUDI-DI code: (01)00851458005136\r\n\r\nThe FilmArray NGDS Warrior Panel is a qualitative, multiplexed, nucleic acid-based in vitro diagnostic test intended for use with the Fil",
+      "reason": "Firm has identified mismatches between the outbreak strain and the reference strain used in the development of its qualitative, multiplexed, nucleic acid-based in vitro diagnostic panel test.",
+      "recall_class": "99459",
+      "date": "2026-07-16",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "GE Medical Systems Information Technologies Inc",
+      "product": "GE Healthcare Portrait Core Services SW V 1.2.0, REF 5700592",
+      "reason": "Portrait Core Services Software version V1.2.0 Security Vulnerability",
+      "recall_class": "2",
+      "date": "2026-07-10",
+      "status": "Open, Classified"
+    },
     {
       "firm": "Olympus Corporation of the Americas",
       "product": "Olympus 4K UHD LCD Monitor. Model Number: OEV321UH.\n\nAn electrically powered visual display unit designed for displaying graphical information in color.",
@@ -11,8 +27,32 @@
       "status": "Open, Classified"
     },
     {
+      "firm": "INTEGRATED MEDCRAFT LLC",
+      "product": "FORWARD Oral Airway Kit (OPA Sizes 5, 6.5, 7, 8, 9, 10, 12). REF Number: 1011-40002. \n\nContaining the affected One-piece Guedel airway components: \n1. Size 00, ISO 5.0, blue. Product Code: 1100050. \n\n2. Size 000, ISO 3.5",
+      "reason": "Devices could potentially contain an occluded or partially occluded Guedel Airway tip.",
+      "recall_class": "1",
+      "date": "2026-07-07",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "INTEGRATED MEDCRAFT LLC",
+      "product": "Kingfisher Compact Individual First Aid Kit. REF Number: 76656. \n\nContaining the affected One-piece Guedel airway components:\n\n1. Size 00, ISO 5.0, blue. Product Code: 1100050. \n\n2. Size 000, ISO 3.5, light green. Produc",
+      "reason": "Devices could potentially contain an occluded or partially occluded Guedel Airway tip.",
+      "recall_class": "1",
+      "date": "2026-07-07",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Siemens Healthcare Diagnostics, Inc.",
+      "product": "Atellica CH Urine Albumin\r\nREF: 11537225",
+      "reason": "processing Atellica CH Urine Albumin (UAlb)\r\ntests on Atellica CH and Atellica CI analyzers may lead to the following issues: Falsely\r\ndepressed Atellica CH Urea Nitrogen (UN_c) results; Falsely depressed Atellica CH\r\nEn",
+      "recall_class": "1",
+      "date": "2026-07-06",
+      "status": "Open, Classified"
+    },
+    {
       "firm": "IsoTis OrthoBiologics, Inc.",
-      "product": "OsteoBallast, 45 x 17.5 mm (SeaSpine Brand), REF: 56800095.\r\nBallast, 45 x 17.5 mm (IsoTis Brand), REF: 02-8000-095",
+      "product": "OsteoBallast, 45 x 17.5 mm (SeaSpine Brand), REF: 56800095.\nBallast, 45 x 17.5 mm (IsoTis Brand), REF: 02-8000-095",
       "reason": "Demineralized bone matrix (DBM) in resorbable mesh indicated for use with autograft as a bone graft extender in the posterolateral spine and pelvis, were filled with approx. 4.5 cc DBM (fill for 45  11 mm configuration) ",
       "recall_class": "2",
       "date": "2026-07-02",
@@ -75,6 +115,70 @@
       "status": "Open, Classified"
     },
     {
+      "firm": "Biomet, Inc.",
+      "product": "Intramedullary Bone Saw Blade Assembly\r\nModel/Catalog Number: 475620\r\nProduct Description: Intramedullary Bone Saw Blade Assembly 12mm",
+      "reason": "Zimmer Biomet is conducting a medical device recall removal for various sizes of the Intramedullary Bone Saw Blade Assembly due to potential sterile barrier packaging damage caused by an exposed saw blade.",
+      "recall_class": "1",
+      "date": "2026-07-01",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Biomet, Inc.",
+      "product": "Intramedullary Bone Saw Blade Assembly\r\nModel/Catalog Number: 475625\r\nProduct Description: Intramedullary Bone Saw Blade Assembly 13mm",
+      "reason": "Zimmer Biomet is conducting a medical device recall removal for various sizes of the Intramedullary Bone Saw Blade Assembly due to potential sterile barrier packaging damage caused by an exposed saw blade.",
+      "recall_class": "1",
+      "date": "2026-07-01",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Biomet, Inc.",
+      "product": "Intramedullary Bone Saw Blade Assembly\r\nModel/Catalog Number: 475630\r\nProduct Description: Intramedullary Bone Saw Blade Assembly 14mm",
+      "reason": "Zimmer Biomet is conducting a medical device recall removal for various sizes of the Intramedullary Bone Saw Blade Assembly due to potential sterile barrier packaging damage caused by an exposed saw blade.",
+      "recall_class": "1",
+      "date": "2026-07-01",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Biomet, Inc.",
+      "product": "Intramedullary Bone Saw Blade Assembly\r\nModel/Catalog Number: 475635\r\nProduct Description: Intramedullary Bone Saw Blade Assembly 15mm",
+      "reason": "Zimmer Biomet is conducting a medical device recall removal for various sizes of the Intramedullary Bone Saw Blade Assembly due to potential sterile barrier packaging damage caused by an exposed saw blade.",
+      "recall_class": "1",
+      "date": "2026-07-01",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Biomet, Inc.",
+      "product": "Intramedullary Bone Saw Blade Assembly\r\nModel/Catalog Number: 475640\r\nProduct Description: Intramedullary Bone Saw Blade Assembly 16mm",
+      "reason": "Zimmer Biomet is conducting a medical device recall removal for various sizes of the Intramedullary Bone Saw Blade Assembly due to potential sterile barrier packaging damage caused by an exposed saw blade.",
+      "recall_class": "1",
+      "date": "2026-07-01",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Aniara Diagnostica LLC",
+      "product": "5-PLASMA Bivalirudin AMR Verification Kit, Model Number 5D-45905",
+      "reason": "Stability issues with the reconstituted lyophilized human plasma and bivalirudin matrix have been identified. These stability issues lead to a degradation of measurable bivalirudin in the controls, calibrators, and linea",
+      "recall_class": "2",
+      "date": "2026-07-01",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Aniara Diagnostica LLC",
+      "product": "5-PLASMA Bivalirudin Calibrator, Model Number 5D-46905",
+      "reason": "Stability issues with the reconstituted lyophilized human plasma and bivalirudin matrix have been identified. These stability issues lead to a degradation of measurable bivalirudin in the controls, calibrators, and linea",
+      "recall_class": "2",
+      "date": "2026-07-01",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Aniara Diagnostica LLC",
+      "product": "5-PLASMA Bivalirudin Control, Model Number 5D-44905",
+      "reason": "Stability issues with the reconstituted lyophilized human plasma and bivalirudin matrix have been identified. These stability issues lead to a degradation of measurable bivalirudin in the controls, calibrators, and linea",
+      "recall_class": "2",
+      "date": "2026-07-01",
+      "status": "Open, Classified"
+    },
+    {
       "firm": "Boston Scientific Corporation",
       "product": "Rapid Refill Continuous Injection System, UPN M00566001",
       "reason": "Devices contain recalled Medline Namic Angiographic Control Syringe with Rotating Adaptor. There is a risk of syringe loosening or disconnecting from the manifold, resulting in loose connection or complete disconnection.",
@@ -91,9 +195,193 @@
       "status": "Open, Classified"
     },
     {
+      "firm": "Boston Scientific Corporation",
+      "product": "Radial Jaw 4 Standard Capacity Biopsy Forceps with the following descriptions and UPN:\n\n1. Radial Jaw 4 SC 240cm   Box 20; Outer Box UPN: M00513401; Inner Box UPN: M00513400.\n\n2.  Radial Jaw 4 SC 240cm   Box 40; Outer Bo",
+      "reason": "Potential for breach in sterile barrier of device packaging.",
+      "recall_class": "1",
+      "date": "2026-06-30",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Boston Scientific Corporation",
+      "product": "Radial Jaw 4 Large Capacity Biopsy Forceps with the following descriptions and UPN:\n\n1. Radial Jaw 4 LC 240cm   Box 20; Outer Box UPN: M00513321; Inner Box UPN: M00513320. \n\n2. Radial Jaw 4 LC 240cm   Box 40; Outer Box U",
+      "reason": "Potential for breach in sterile barrier of device packaging.",
+      "recall_class": "1",
+      "date": "2026-06-30",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Boston Scientific Corporation",
+      "product": "Radial Jaw 4 Jumbo Biopsy Forceps with the following descriptions and UPN:\n\n\nRadial Jaw 4 Jumbo 240cm   Box 5; Outer Box UPN: M00513363; Inner Box UPN: M00513360.",
+      "reason": "Potential for breach in sterile barrier of device packaging.",
+      "recall_class": "1",
+      "date": "2026-06-30",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Merge Healthcare, Inc.",
+      "product": "Merge PACS, medical imaging diagnostic workstation",
+      "reason": "Merge Healthcare has identified a potential issue that may cause thumbnails from a previously opened patient study to be displayed in the Thumbnail Bar while a different patient study is open.",
+      "recall_class": "2",
+      "date": "2026-06-30",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Merge Healthcare, Inc.",
+      "product": "Merge OrthoPACS, medical imaging diagnostic workstation",
+      "reason": "Merge Healthcare has identified a potential issue that may cause thumbnails from a previously opened patient study to be displayed in the Thumbnail Bar while a different patient study is open.",
+      "recall_class": "2",
+      "date": "2026-06-30",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "GE Medical Systems Information Technologies Inc",
+      "product": "GE Healthcare MAC VU360, REF# part number 2030361-023; Electrocardiograph",
+      "reason": "Software issue issue with the MAC VU360 v3.0 system.  After selecting the order refresh icon, an open preview or review screen might fail to close automatically after 2 minutes of inactivity. As a result, data from a pre",
+      "recall_class": "2",
+      "date": "2026-06-29",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Siemens Healthcare Diagnostics, Inc.",
+      "product": "Syva Emit Disopyramide Assay\r\nEnzyme Immunoassay, Lidocaine\r\nSMN 10445370\r\nCatalog No 6N319UL",
+      "reason": "Out-of-specification sodium azide concentration in Syva Emit Disopyramide Enzyme Immunoassay Calibrator Lot U1. While the assay results were not impacted, the overall health risk to lab technicians due to this issue is l",
+      "recall_class": "2",
+      "date": "2026-06-26",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Siemens Healthcare Diagnostics, Inc.",
+      "product": "Syva Emit tox Serum Tricyclic Antidepressant Calibrator/Controls\r\nSMN 10445390\r\nCatalog No. 7C219UL",
+      "reason": "out-of-specification sodium azide concentration in Syva Emit Tox Serum Tricyclic Antidepressant Calibrator/Controls Lot U2. While the assay results were not impacted, the overall health risk to lab technicians due to thi",
+      "recall_class": "2",
+      "date": "2026-06-26",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Beckman Coulter Inc.",
+      "product": "REF # D23352, MicroScan LabPro V5.03 Panel Update 11 (US), Electronic installed  on the following instruments: \r\n- B1018-280 MicroScan autoSCAN-4 Instrument\r\n- B1018-283 MicroScan WalkAway-40 plus Instrument\r\n- B1018-284",
+      "reason": "Analyzers contain incorrect algorithms which may affect antimicrobial susceptibility test results, leading to false susceptibility classifications.\"",
+      "recall_class": "2",
+      "date": "2026-06-26",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Beckman Coulter Inc.",
+      "product": "REF # D23354, MicroScan LabPro V5.03 Panel Update 11 DVD Kit (US) on the following instruments: \r\n- B1018-280 MicroScan autoSCAN-4 Instrument\r\n- B1018-283 MicroScan WalkAway-40 plus Instrument\r\n- B1018-284 MicroScan Walk",
+      "reason": "Analyzers contain incorrect algorithms which may affect antimicrobial susceptibility test results, leading to false susceptibility classifications.\"",
+      "recall_class": "2",
+      "date": "2026-06-26",
+      "status": "Open, Classified"
+    },
+    {
       "firm": "ResMed Ltd.",
-      "product": "Resmed Astral 100/150\r\n\r\nResmed Astral 100/50 is a ventilator system that provides continuous or intermittent ventilatory support for patients weighing more than 11lb (5kg) who require mechanical ventilation.",
+      "product": "Resmed Astral 100/150\n\nResmed Astral 100/50 is a ventilator system that provides continuous or intermittent ventilatory support for patients weighing more than 11lb (5kg) who require mechanical ventilation.",
       "reason": "Due to a Supercapacitor electrolyte leakage on Printed Circuit Board Assembly (PCBA) may damage the charger chip, causing fail-safe state and interruption of ventilation therapy.",
+      "recall_class": "2",
+      "date": "2026-06-25",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Pride Mobility Products Corp.",
+      "product": "Brand Name: Quantum Rehab\nProduct Name: Quantum 4Front 2\nModel/Catalog Number: Quantum 4Front 2\nSoftware Version: 2.0.11, new version: 2.0.13\nProduct Description: Wheelchair, Powered (ITI), 890.3860\nComponent: Controller",
+      "reason": "If the \"Remind Me Later\" option is selected for user reminders, reminder pop-up messages may appear while the wheelchair is in use. If this occurs while driving the wheelchair, the wheelchair may perform an unexpected pa",
+      "recall_class": "2",
+      "date": "2026-06-25",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Pride Mobility Products Corp.",
+      "product": "Brand Name: Quantum Rehab\nProduct Name: Quantum Outback\nModel/Catalog Number: Quantum Outback\nSoftware Version: 2.0.11, new version: 2.0.13\nProduct Description: Wheelchair, Powered (ITI), 890.3860\nComponent: Controller",
+      "reason": "If the \"Remind Me Later\" option is selected for user reminders, reminder pop-up messages may appear while the wheelchair is in use. If this occurs while driving the wheelchair, the wheelchair may perform an unexpected pa",
+      "recall_class": "2",
+      "date": "2026-06-25",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Pride Mobility Products Corp.",
+      "product": "Brand Name: Quantum Rehab\nProduct Name: Q6 Edge 3 Stretto\nModel/Catalog Number: Q6 Edge 3 Stretto\nSoftware Version: 2.0.11, new version: 2.0.13\nProduct Description: Wheelchair, Powered (ITI), 890.3860\nComponent: Controll",
+      "reason": "If the \"Remind Me Later\" option is selected for user reminders, reminder pop-up messages may appear while the wheelchair is in use. If this occurs while driving the wheelchair, the wheelchair may perform an unexpected pa",
+      "recall_class": "2",
+      "date": "2026-06-25",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Pride Mobility Products Corp.",
+      "product": "Brand Name: Quantum Rehab\nProduct Name: R-TRAK\nModel/Catalog Number: R-TRAK\nSoftware Version: 2.0.11, new version: 2.0.13\nProduct Description: Wheelchair, Powered (ITI), 890.3860\nComponent: Controller",
+      "reason": "If the \"Remind Me Later\" option is selected for user reminders, reminder pop-up messages may appear while the wheelchair is in use. If this occurs while driving the wheelchair, the wheelchair may perform an unexpected pa",
+      "recall_class": "2",
+      "date": "2026-06-25",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Pride Mobility Products Corp.",
+      "product": "Brand Name: Quantum Rehab\nProduct Name: Q6 Edge HD\nModel/Catalog Number: Q6 Edge HD\nSoftware Version: 2.0.11, new version: 2.0.13\nProduct Description: Wheelchair, Powered (ITI), 890.3860\nComponent: Controller",
+      "reason": "If the \"Remind Me Later\" option is selected for user reminders, reminder pop-up messages may appear while the wheelchair is in use. If this occurs while driving the wheelchair, the wheelchair may perform an unexpected pa",
+      "recall_class": "2",
+      "date": "2026-06-25",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Pride Mobility Products Corp.",
+      "product": "Brand Name: Quantum rehab\nProduct Name: Q6 Edge 2.0\nModel/Catalog Number: Q6 Edge 2.0\nSoftware Version: 2.0.11, new version: 2.0.13\nProduct Description: Wheelchair, Powered (ITI), 890.3860\nComponent: Controller",
+      "reason": "If the \"Remind Me Later\" option is selected for user reminders, reminder pop-up messages may appear while the wheelchair is in use. If this occurs while driving the wheelchair, the wheelchair may perform an unexpected pa",
+      "recall_class": "2",
+      "date": "2026-06-25",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Pride Mobility Products Corp.",
+      "product": "Brand Name: Quantum Rehab\nProduct Name: Quantum 1450\nModel/Catalog Number: Quantum 1450\nSoftware Version: 2.0.11, new version: 2.0.13\nProduct Description: Wheelchair, Powered (ITI), 890.3860\nComponent: Controller",
+      "reason": "If the \"Remind Me Later\" option is selected for user reminders, reminder pop-up messages may appear while the wheelchair is in use. If this occurs while driving the wheelchair, the wheelchair may perform an unexpected pa",
+      "recall_class": "2",
+      "date": "2026-06-25",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Pride Mobility Products Corp.",
+      "product": "Brand Name: Quantum Rehab\nProduct Name: Q6 Edge 2.0 (ilevel)\nModel/Catalog Number: Q6 Edge 2.0 (ilevel)\nSoftware Version: 2.0.11, new version: 2.0.13\nProduct Description: Wheelchair, Powered (ITI), 890.3860\nComponent: Co",
+      "reason": "If the \"Remind Me Later\" option is selected for user reminders, reminder pop-up messages may appear while the wheelchair is in use. If this occurs while driving the wheelchair, the wheelchair may perform an unexpected pa",
+      "recall_class": "2",
+      "date": "2026-06-25",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Pride Mobility Products Corp.",
+      "product": "Brand Name: Quantum Rehab\nProduct Name: Q6 Edge 3\nModel/Catalog Number: Q6 Edge 3\nSoftware Version: 2.0.11, new version: 2.0.13\nProduct Description: Wheelchair, Powered (ITI), 890.3860\nComponent: Controller",
+      "reason": "If the \"Remind Me Later\" option is selected for user reminders, reminder pop-up messages may appear while the wheelchair is in use. If this occurs while driving the wheelchair, the wheelchair may perform an unexpected pa",
+      "recall_class": "2",
+      "date": "2026-06-25",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Pride Mobility Products Corp.",
+      "product": "Brand Name: Quantum Rehab\nProduct Name: Q6 Edge 4\nModel/Catalog Number: Q6 Edge 4\nSoftware Version: 2.0.11, new version: 2.0.13\nProduct Description: Wheelchair, Powered (ITI), 890.3860\nComponent: Controller",
+      "reason": "If the \"Remind Me Later\" option is selected for user reminders, reminder pop-up messages may appear while the wheelchair is in use. If this occurs while driving the wheelchair, the wheelchair may perform an unexpected pa",
+      "recall_class": "2",
+      "date": "2026-06-25",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Pride Mobility Products Corp.",
+      "product": "Brand Name: Quantum Rehab\nProduct Name: Quantum 4Front 2HD\nModel/Catalog Number: Quantum 4Front 2HD\nSoftware Version: 2.0.11, new version: 2.0.13\nProduct Description: Wheelchair, Powered (ITI), 890.3860\nComponent: Contro",
+      "reason": "If the \"Remind Me Later\" option is selected for user reminders, reminder pop-up messages may appear while the wheelchair is in use. If this occurs while driving the wheelchair, the wheelchair may perform an unexpected pa",
+      "recall_class": "2",
+      "date": "2026-06-25",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Pride Mobility Products Corp.",
+      "product": "Brand Name: Quantum Rehab\nProduct Name: 4Front\nModel/Catalog Number: 4Front\nSoftware Version: 2.0.11, new version: 2.0.13\nProduct Description: Wheelchair, Powered (ITI), 890.3860\nComponent: Controller",
+      "reason": "If the \"Remind Me Later\" option is selected for user reminders, reminder pop-up messages may appear while the wheelchair is in use. If this occurs while driving the wheelchair, the wheelchair may perform an unexpected pa",
+      "recall_class": "2",
+      "date": "2026-06-25",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Pride Mobility Products Corp.",
+      "product": "Brand Name: Quantum Rehab\nProduct Name: Quantum Rival\nModel/Catalog Number: Quantum Rival\nSoftware Version: 2.0.11, new version: 2.0.13\nProduct Description: Wheelchair, Powered (ITI), 890.3860\nComponent: Controller",
+      "reason": "If the \"Remind Me Later\" option is selected for user reminders, reminder pop-up messages may appear while the wheelchair is in use. If this occurs while driving the wheelchair, the wheelchair may perform an unexpected pa",
       "recall_class": "2",
       "date": "2026-06-25",
       "status": "Open, Classified"
@@ -155,6 +443,22 @@
       "status": "Open, Classified"
     },
     {
+      "firm": "Maquet Critical Care AB",
+      "product": "Flow Anesthesia Machine\r\n\r\nFlow-i C20 6677200\r\nFlow-i C30 6677300\r\nFlow-i C40 6677400\r\nFlow-i C20 6888520\r\nFlow-i C30 6888530\r\nFlow-i C40 6888540\r\nFlow-c 6887700\r\nFlow-e 6887900",
+      "reason": "Events observed where anesthetic agent was not delivered when the vaporizer was activated. Failure to deliver the anesthetic agent may result in the patient receiving insufficient anesthesia and may lead to intraoperativ",
+      "recall_class": "2",
+      "date": "2026-06-24",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Therabody, Inc",
+      "product": "Charger for the Therabody Theragun, G4 PRO massage device, and products which include the 4th Generation Theragun PRO charger.\n\nG4 PRO Black US - Refurb., SKU TG02428-01\n\nG4 PRO NA, SKU G4-PRO-PKG-NA\n\nG4-PRO-PKG-US, SKU ",
+      "reason": "Charging cradle for the device may overheat while charging the device's removable battery pack, presenting risk of thermal event (fire). Firm has received reports alleging the product caught fire and other reports regard",
+      "recall_class": "1",
+      "date": "2026-06-23",
+      "status": "Open, Classified"
+    },
+    {
       "firm": "Ferno-Washington Inc",
       "product": "Power F2 Powered Fastening System, Product No. 0567091 \nPowered fastening system intended for professional use only. Designed to load, unload, and secure a compatible wheeled stretcher inside a ground-based ambulance.\n\nI",
       "reason": "Product may experience accelerated roller wear and potential deformation due to interference between the roller assembly and rail. In the worst-case condition, rail mechanism may become lodged during operation and moveme",
@@ -167,6 +471,14 @@
       "product": "Boston Scientific TheraSphere 360 Y-90 Management Platform, Model Number M00139509001; Radiological Image Processing System.",
       "reason": "Software anomaly occurs when a user adds one or more vials to the cart and subsequently returns to the Activity Calculator to modify one or more input. When a user modifies an input and selects \"Recalculate\",  the dose c",
       "recall_class": "2",
+      "date": "2026-06-19",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "MUNEVO GMBH",
+      "product": "munevo DRIVE and munevo DRIVE r-net\n\nPowered Wheelchair Hands-Free Control Application/Smart Glasses Interface/Wheelchair Head Control System",
+      "reason": "A software issue may cause the wheelchair's driving mechanism to fall out of calibration. When this occurs, the device may experience unexpected steering drift or imprecise control while driving the wheelchair. The wheel",
+      "recall_class": "1",
       "date": "2026-06-19",
       "status": "Open, Classified"
     },
@@ -251,6 +563,38 @@
       "status": "Open, Classified"
     },
     {
+      "firm": "Boston Scientific Neuromodulation Corporation",
+      "product": "INFINION CX LEAD KIT, 50CM, Model: SC-2317-50, Material: M365SC2317500; \r\nINFINION CX LEAD KIT, 70CM, Model: SC-2317-70, Material: M365SC2317700.  part of the Boston Scientific Spinal Cord Stimulator (SCS) Systems.",
+      "reason": "Spinal cord stimulation system lead body may be exposed to stress at the anchor site. This may result in high impedance measurements or lead fractures, which may lead to inadequate stimulation, additional intervention, i",
+      "recall_class": "3",
+      "date": "2026-06-17",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "PHILIPS MEDICAL SYSTEMS NEDERLAND B.V.",
+      "product": "Philips Allura under the following System Descriptions and corresponding model numbers: \n\n1. Allura Xper FD10; Model Numbers: 722003, 722010, 722026. \n\n2. Allura Xper FD10 OR Table; Model Number: 722033. \n\n3. Allura Xper",
+      "reason": "Potential Loss of imaging functionality, loss of motorized movement, or loss of data due to unauthorized Hard Disk Drives.",
+      "recall_class": "2",
+      "date": "2026-06-17",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "PHILIPS MEDICAL SYSTEMS NEDERLAND B.V.",
+      "product": "Philips Azurion under the following System Descriptions and corresponding model numbers: \n\n1. Azurion 3 M12; Model Numbers: 722063, 722221. \n\n2. Azurion 3 M15; Model Numbers: 722064, 722222, 722280. \n\n3. Azurion 5 M12; M",
+      "reason": "Potential Loss of imaging functionality, loss of motorized movement, or loss of data due to unauthorized Hard Disk Drives.",
+      "recall_class": "2",
+      "date": "2026-06-17",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "PHILIPS MEDICAL SYSTEMS NEDERLAND B.V.",
+      "product": "Philips Allura, Cardio Vascular-Allura Centron. Model Number: 722400.\n\n\n\nInterventional Fluoroscopic X-Ray System.",
+      "reason": "Potential Loss of imaging functionality, loss of motorized movement, or loss of data due to unauthorized Hard Disk Drives.",
+      "recall_class": "2",
+      "date": "2026-06-17",
+      "status": "Open, Classified"
+    },
+    {
       "firm": "Accuray Incorporated",
       "product": "Cyberknife Treatment Deliver System equipped with the Xchange Robotic Collimator Changer; Linear Accelerator",
       "reason": "In certain cases, a collimator may not fully dock, which triggers a system interlock and prevents motion from the operator console. If personnel then enter the treatment room and initiate motion using the in-room control",
@@ -279,6 +623,14 @@
       "product": "MiniMed Go App, Model: MMT-8600 (iOS), MMT-8601 (Android)",
       "reason": "For MiniMed Go app version 1.0.0 and 1.1.0, when the  Set day and night  is turned OFF and  missed dose  or  Correct high glucose  alerts are enabled, the associated alerts will not be triggered during the nighttime. Thi",
       "recall_class": "2",
+      "date": "2026-06-16",
+      "status": "Open, Classified"
+    },
+    {
+      "firm": "Copan WASP",
+      "product": "Brand Name: WASPLab\nProduct Name: WASPLab\nModel/Catalog Number: W087\nSoftware Version: WebApp version 2.33.1, 2.33.3 and 2.34.2\nProduct Description: WASPLab is an automated device intended to be used for the incubation a",
+      "reason": "Due to a software issue within the WebApp that potentially prevents the user to overwrite the results.",
+      "recall_class": "1",
       "date": "2026-06-16",
       "status": "Open, Classified"
     },
@@ -448,358 +800,6 @@
       "reason": "Labeling discrepancy:  Devices distributed with Instructions For Use (IFU) did not include\nFARAPOINT PFA catheter information.",
       "recall_class": "3",
       "date": "2026-06-11",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Boston Scientific Corporation",
-      "product": "FARASTAR PFA Generator, Product ID M004PFCE61M460; Percutaneous Cardiac Ablation Catheter",
-      "reason": "Labeling discrepancy:  Devices distributed with Instructions For Use (IFU) did not include\nFARAPOINT PFA catheter information.",
-      "recall_class": "3",
-      "date": "2026-06-11",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Boston Scientific Corporation",
-      "product": "FARASTAR Ablation Generator EU, Pulsed Field Ablation Generator, Product ID 61M401; Percutaneous Cardiac Ablation Catheter",
-      "reason": "Boston Scientific is replacing specific FARASTAR PFA generators which have a configuration that is not compatible for use with the FARAPOINT PFA catheter.",
-      "recall_class": "3",
-      "date": "2026-06-11",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Boston Scientific Corporation",
-      "product": "FARADRIVE Steerable Sheath Clear IDE, used to facilitate access to the vasculature and into the chambers of the heart, Material Number 21C602, IFU Reference Number 51636751-01",
-      "reason": "Boston Scientific's complaint investigations have identified that a subset of air ingress complaints are associated with hemostatic valve damage related to dilator insertion orientation during device preparation. Valve d",
-      "recall_class": "2",
-      "date": "2026-06-11",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Boston Scientific Corporation",
-      "product": "FARADRIVE STEERABLE SHEATH CLEAR, used to facilitate access to the vasculature and into the chambers of the heart, Material Number 21M402, IFU Reference Number LBL1062",
-      "reason": "Boston Scientific's complaint investigations have identified that a subset of air ingress complaints are associated with hemostatic valve damage related to dilator insertion orientation during device preparation. Valve d",
-      "recall_class": "2",
-      "date": "2026-06-11",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Boston Scientific Corporation",
-      "product": "FARADRIVE STEERABLE SHEATH (CLEAR) - US, used to facilitate access to the vasculature and into the chambers of the heart, Material Number M004PF21M402, IFU Reference Number 51654495-01",
-      "reason": "Boston Scientific's complaint investigations have identified that a subset of air ingress complaints are associated with hemostatic valve damage related to dilator insertion orientation during device preparation. Valve d",
-      "recall_class": "2",
-      "date": "2026-06-11",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Boston Scientific Corporation",
-      "product": "FARADRIVE STEERABLE SHEATH CLEAR OUS, used to facilitate access to the vasculature and into the chambers of the heart, Material Number M004PFCE21M402, IFU Reference Number 51659727-01",
-      "reason": "Boston Scientific's complaint investigations have identified that a subset of air ingress complaints are associated with hemostatic valve damage related to dilator insertion orientation during device preparation. Valve d",
-      "recall_class": "2",
-      "date": "2026-06-11",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "Medline medical convenience kits labeled as:  \n1) KIT PEDIATRIC OPEN HEART MOSES, Medline Kit SKU DYNJ910103B; \n2) BASIC HEART CDS, Medline Kit SKU DYNJ910961A.",
-      "reason": "Medline Industries, LP is issuing a recall for specific Medline convenience kits containing BD PurPrep 26 mL which may be contaminated with low levels of Bacillus species.",
-      "recall_class": "2",
-      "date": "2026-06-11",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "Medline medical convenience kits labeled as:  \n1) SHOULDER PACK, Medline Kit SKU DYNJ39590O; \n2) SHOULDER PACK, Medline Kit SKU DYNJ88566; \n3) MAJOR ORTHO KIT, Medline Kit SKU DYNJ911535.",
-      "reason": "Medline Industries, LP is issuing a recall for specific Medline convenience kits containing BD PurPrep 26 mL which may be contaminated with low levels of Bacillus species.",
-      "recall_class": "2",
-      "date": "2026-06-11",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "Medline medical convenience kits labeled as:  \nNEURO PACK, Medline Kit SKU DYNJ59397P",
-      "reason": "Medline Industries, LP is issuing a recall for specific Medline convenience kits containing BD PurPrep 26 mL which may be contaminated with low levels of Bacillus species.",
-      "recall_class": "1",
-      "date": "2026-06-11",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "Medline medical convenience kits labeled as:  \n1) TOTAL JOINT PACK Medline Kit SKU DYNJ65065A: \n2) EXTREMITY/FOOT PACK Medline Kit SKU DYNJ65066B: \n3) ANTERIOR CERVICAL-SMH Medline Kit SKU DYNJ907718B: \n4) LAMINECTOMY-SM",
-      "reason": "Medline Industries, LP is issuing a recall for specific Medline convenience kits containing BD PurPrep 26 mL which may be contaminated with low levels of Bacillus species.",
-      "recall_class": "1",
-      "date": "2026-06-11",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Oscor Inc.",
-      "product": "Abiomed REF: 0052-3025, Introducer Kit for Impella \nHemostatic Peel Away Introducer System with Infusion Sideport, 14F 13cm and 25cm.  heart pump and accessories.",
-      "reason": "Due to manufacturing issues, there is a potential for the 14Fr and 23Fr introducer sheaths to leak from the sidearm, under the sheath cap, and along the hub score lines in the hub region.",
-      "recall_class": "2",
-      "date": "2026-06-10",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Oscor Inc.",
-      "product": "Abiomed REF: 0052-3021, Introducer Kit for Impella \nHemostatic Peel Away Introducer System with Infusion Sideport, 14F, 23F. heart pump and accessories.",
-      "reason": "Due to manufacturing issues, there is a potential for the 14Fr and 23Fr introducer sheaths to leak from the sidearm, under the sheath cap, and along the hub score lines in the hub region.",
-      "recall_class": "2",
-      "date": "2026-06-10",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Oscor Inc.",
-      "product": "Abiomed REF: 0052-3006, Introducer Kit for Impella \nHemostatic Peel Away Introducer System with Infusion Sideport, 23F. heart pump and accessories.",
-      "reason": "Due to manufacturing issues, there is a potential for the 14Fr and 23Fr introducer sheaths to leak from the sidearm, under the sheath cap, and along the hub score lines in the hub region.",
-      "recall_class": "2",
-      "date": "2026-06-10",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "ICU Medical, Inc.",
-      "product": "ICU Medical Plum Duo Infusion Pump, v1.2.3:  1) Item Number 400020401 and 2)  Item Number 400020403; infusion pump",
-      "reason": "In a specific scenario, the pump will not decrement the Volume to be Infused (VTBI) displayed on the Delivery screen and may deliver up to twice the VTBI at the programmed rate.",
-      "recall_class": "2",
-      "date": "2026-06-10",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "ICU Medical, Inc.",
-      "product": "ICU Medical Plum Solo Precision IV Pump, v1.0.3, Item Number 400010401; infusion pump",
-      "reason": "In a specific scenario, the pump will not decrement the Volume to be Infused (VTBI) displayed on the Delivery screen and may deliver up to twice the VTBI at the programmed rate.",
-      "recall_class": "2",
-      "date": "2026-06-10",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Orthofix U.S. LLC",
-      "product": "Orthofix MINIRAIL, STANDARD LENGTHENER \nModel/Catalog Number: M101, Unilateral orthopedic/trauma external fixation device",
-      "reason": "Unilateral external fixation devices may be incorrectly labeled. Minirail M101 was labeled as M103, Minirail M103 was labeled as M101, and Minirail M122 was labeled as M111",
-      "recall_class": "2",
-      "date": "2026-06-10",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Orthofix U.S. LLC",
-      "product": "Orthofix MINIRAIL, SHORT, LENGTHENER \nREF: M103, Unilateral orthopedic/trauma external fixation device",
-      "reason": "Unilateral external fixation devices may be incorrectly labeled. Minirail M101 was labeled as M103, Minirail M103 was labeled as M101, and Minirail M122 was labeled as M111",
-      "recall_class": "2",
-      "date": "2026-06-10",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Orthofix U.S. LLC",
-      "product": "Orthofix ARTICULATED MINIRAIL FIXATOR HORIZONTAL AXIS \nREF: M111, Unilateral orthopedic/trauma external fixation device",
-      "reason": "Unilateral external fixation devices may be incorrectly labeled. Minirail M101 was labeled as M103, Minirail M103 was labeled as M101, and Minirail M122 was labeled as M111",
-      "recall_class": "2",
-      "date": "2026-06-10",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Orthofix U.S. LLC",
-      "product": "Orthofix MINIRAIL, ARTICULATED, FIXATOR, VERTICAL AXIS \nREF: M122, Unilateral orthopedic/trauma external fixation device",
-      "reason": "Unilateral external fixation devices may be incorrectly labeled. Minirail M101 was labeled as M103, Minirail M103 was labeled as M101, and Minirail M122 was labeled as M111",
-      "recall_class": "2",
-      "date": "2026-06-10",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "Medline Kits containing Zimmer Biomet mixing bowls and spatulas\n\nTOTAL KNEE PACK\nDYNJT6267",
-      "reason": "Kits contain Zimmer Biomet mixing bowls and spatulas, which were recalled due to seal nonconformities which present risk of sterility breach. Health consequences from use of product include clinically insignificant exten",
-      "recall_class": "2",
-      "date": "2026-06-10",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "Medline Kits containing Zimmer Biomet mixing bowls and spatulas\n\nTOTAL KNEE PACK-LF\nDYNJ61651J",
-      "reason": "Kits contain Zimmer Biomet mixing bowls and spatulas, which were recalled due to seal nonconformities which present risk of sterility breach. Health consequences from use of product include clinically insignificant exten",
-      "recall_class": "1",
-      "date": "2026-06-10",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Zimmer Surgical Inc",
-      "product": "Brand Name: Sterile Tourniquet Hoses\nProduct Name: A.T.S 4000 TS Tourniquet Systems Dual Hose with CPC Connectors\nModel/Catalog Number: 60-1812-101-00\nSoftware Version: N/A\nProduct Description: Dual Sterile Extension Hos",
-      "reason": "Potential sterility breach in sealing area of sterile pouch. If used, issue may result in moderate localized infection. If discovered prior to use, may result in clinically insignificant extension of surgery to find anot",
-      "recall_class": "1",
-      "date": "2026-06-09",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Zimmer Surgical Inc",
-      "product": "Brand Name: Sterile Tourniquet Hoses\nProduct Name: A.T.S 4000 TS Tourniquet Systems Single Hose with CPC Connectors\nModel/Catalog Number: 60-4009-101-00\nSoftware Version: N/A\nProduct Description: Single Sterile Extension",
-      "reason": "Potential sterility breach in sealing area of sterile pouch. If used, issue may result in moderate localized infection. If discovered prior to use, may result in clinically insignificant extension of surgery to find anot",
-      "recall_class": "1",
-      "date": "2026-06-09",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "CMR SURGICAL LIMITED",
-      "product": "Brand Name: Versius Surgical System US\nProduct Name: Vesius Surgeon Console US\nModel/Catalog Number: V-SS-1020\nSoftware Version: Pratchett 1 version 62.1\nProduct Description: The Versius Surgical System is a modular, ope",
-      "reason": "Secure Boot was mistakenly not enabled at manufacturing time, which presents a potential cybersecurity risk.",
-      "recall_class": "2",
-      "date": "2026-06-09",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Siemens Medical Solutions USA, Inc",
-      "product": "ARTIS icono ceiling. Model Number: 11328100.",
-      "reason": "Potential issue with the Display ceiling suspension (DCS Fix XL) that holds the monitor in place. Over time some screws that keep the monitor attached to the suspension may gradually loosen.",
-      "recall_class": "2",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "ConvaTec, Inc",
-      "product": "Aquacel Ag Surgical SP \nREF: 413556\n9cm x 15cm/3.5 in. x 6 in., Sterile R",
-      "reason": "Surgical dressing  manufactured out of specification (greater thickness).",
-      "recall_class": "U",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Klowen Braces",
-      "product": "KL Owen Custom Orthodontic Solution, model/catalog number CIAS-800033,",
-      "reason": "A product error defect may cause incorrect bracket placement.",
-      "recall_class": "1",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Siemens Healthcare Diagnostics, Inc.",
-      "product": "Atellica CH Enzymatic Hemoglobin A1c (A1c_E). Material Number: 11097536.",
-      "reason": "The potential for intermittent well-to-well bias on the A1c_E assay on the Atellica CH and Atellica CI analyzer which could cause falsely depressed or falsely elevated HbA1c patient results.",
-      "recall_class": "2",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "MEDLINE medical procedure convenience kit labeled as:    HIP CDS-LF, Medline kit SKU CDS984556N",
-      "reason": "The procedure kits contain ICU Medical, Inc. pain management kits containing Bupivacaine Hydrochloride in Dextrose Injection, USP, which were recalled due to quality issues that could result in drug ineffectiveness.",
-      "recall_class": "2",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "MEDLINE medical procedure convenience kit labeled as:  \n1) TOTAL KNEE-LF, Medline kit SKU CDSOPT590T; \n2) TOTAL KNEE-LF, Medline kit SKU CDSOPT590U; \n3) TOTAL KNEE CDS, Medline kit SKU CDS983930J; \n4) HIP CDS-LF, Medline",
-      "reason": "The procedure kits contain ICU Medical, Inc. pain management kits containing Bupivacaine Hydrochloride in Dextrose Injection, USP, which were recalled due to quality issues that could result in drug ineffectiveness.",
-      "recall_class": "1",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Micro Therapeutics,  Inc.",
-      "product": "Pipeline Flex Embolization Device with Shield Technology, 3.00 mm x 12 mm 027\nREF PED2-300-12",
-      "reason": "Incorrect labeling - embolization devices labeled as 3.0 mm x 20 mm implants contain 12 mm implants, and devices labeled as 3.0 mm x 12 mm implants contain 20 mm implants.",
-      "recall_class": "3",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Micro Therapeutics,  Inc.",
-      "product": "Pipeline Flex Embolization Device with Shield Technology, 3.00 mm x 20 mm 027\nREF PED2-300-20",
-      "reason": "Incorrect labeling - embolization devices labeled as 3.0 mm x 20 mm implants contain 12 mm implants, and devices labeled as 3.0 mm x 12 mm implants contain 20 mm implants.",
-      "recall_class": "3",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "Medline convenience kits containing Bard Silastic Foley Catheters (French sizes 16, 18, 20) 5cc balloons.\n\nKIT ROBOTICS UROLOGY PROSTATE\t\n\tDYKMBNDL116I",
-      "reason": "Affected kits contain recalled Bard Silastic Foley Catheters. Catheters were recalled by manufacturer due to increased amount of raw material present on the surface of the catheter. Issue may result in the use of urinary",
-      "recall_class": "2",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "Medline convenience kits containing Bard Silastic Foley Catheters (French sizes 16, 18, 20) 5cc balloons.\n\nDAVINCI PROSTATE PACK\t\n\tDYNJ68477L\n\tDYNJ68477M",
-      "reason": "Affected kits contain recalled Bard Silastic Foley Catheters. Catheters were recalled by manufacturer due to increased amount of raw material present on the surface of the catheter. Issue may result in the use of urinary",
-      "recall_class": "2",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "Medline convenience kits containing Bard Silastic Foley Catheters (French sizes 16, 18, 20) 5cc balloons.\n\n\t\nUROLOGY ROBOTIC PROCEDURE PACK\t\n\tDYNJ0945779U",
-      "reason": "Affected kits contain recalled Bard Silastic Foley Catheters. Catheters were recalled by manufacturer due to increased amount of raw material present on the surface of the catheter. Issue may result in the use of urinary",
-      "recall_class": "2",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "Medline convenience kits containing Bard Silastic Foley Catheters (French sizes 16, 18, 20) 5cc balloons.\n\nNON MB DAVINCI LITHOTOMY SM PK\t\n\tDYNJT6105",
-      "reason": "Affected kits contain recalled Bard Silastic Foley Catheters. Catheters were recalled by manufacturer due to increased amount of raw material present on the surface of the catheter. Issue may result in the use of urinary",
-      "recall_class": "2",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "Medline convenience kits containing Bard Silastic Foley Catheters (French sizes 16, 18, 20) 5cc balloons.\n\nPROSTATE ROBOTIC\t\n\tDYNJ901822B",
-      "reason": "Affected kits contain recalled Bard Silastic Foley Catheters. Catheters were recalled by manufacturer due to increased amount of raw material present on the surface of the catheter. Issue may result in the use of urinary",
-      "recall_class": "2",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "Medline convenience kits containing Bard Silastic Foley Catheters (French sizes 16, 18, 20) 5cc balloons.\n\nROBOTIC\t\n\tCDS980523M",
-      "reason": "Affected kits contain recalled Bard Silastic Foley Catheters. Catheters were recalled by manufacturer due to increased amount of raw material present on the surface of the catheter. Issue may result in the use of urinary",
-      "recall_class": "2",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "Medline convenience kits containing Bard Silastic Foley Catheters (French sizes 16, 18, 20) 5cc balloons.\n\nRR-DAVINCI PROSTATE ACCESSORY\t\n\tDYNJ63392F",
-      "reason": "Affected kits contain recalled Bard Silastic Foley Catheters. Catheters were recalled by manufacturer due to increased amount of raw material present on the surface of the catheter. Issue may result in the use of urinary",
-      "recall_class": "2",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "Medline convenience kits containing Bard Silastic Foley Catheters (French sizes 16, 18, 20) 5cc balloons.\n\nSM-LAPAROSCOPIC PROSTATE PAC\t\n\tDYNJ61206J",
-      "reason": "Affected kits contain recalled Bard Silastic Foley Catheters. Catheters were recalled by manufacturer due to increased amount of raw material present on the surface of the catheter. Issue may result in the use of urinary",
-      "recall_class": "2",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Medline Industries, LP",
-      "product": "Medline convenience kits containing Bard Silastic Foley Catheters (French sizes 16, 18, 20) 5cc balloons.\n\nKIT ROBOTICS UROLOGY PROSTATE\t\n\tDYKMBNDL116G",
-      "reason": "Affected kits contain recalled Bard Silastic Foley Catheters. Catheters were recalled by manufacturer due to increased amount of raw material present on the surface of the catheter. Issue may result in the use of urinary",
-      "recall_class": "2",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Windstone Medical Packaging, Inc.",
-      "product": "AMS ALIGNED MEDICAL SOLUTIONS medical convenience kits labeled as:  \n1)\tENT Pack, Part Number AMS10411B; \n2)\tENT Pack, Part Number AMS10411C; \n3)\tRhinoplasty Pack, Part Number AMS11963A; \n4)\tSpine Pack, Part Number AMS12",
-      "reason": "The recall notice was initiated due to a Medicom Urgent Medical Device Recall. Medicom is recalling specific lots of Ritmed Neurological Sponges Non-Sterile Models 55992C to 55998C due to potential for unexpected variabi",
-      "recall_class": "2",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Windstone Medical Packaging, Inc.",
-      "product": "AMS ALIGNED MEDICAL SOLUTIONS medical convenience kits labeled as:  \n1) ENT Pack, Pack Number AMS12206; \n2) ENT Pack, Pack Number AMS15517; \n3) ENT Facial Pack, Pack Number AMS15863A.",
-      "reason": "The recall notice was initiated due to a Medicom Urgent Medical Device Recall. Medicom is recalling specific lots of Ritmed Neurological Sponges Non-Sterile Models 55992C to 55998C due to potential for unexpected variabi",
-      "recall_class": "1",
-      "date": "2026-06-08",
-      "status": "Open, Classified"
-    },
-    {
-      "firm": "Windstone Medical Packaging, Inc.",
-      "product": "AMS ALIGNED MEDICAL SOLUTIONS medical convenience kits labeled as:  \n1)\tNeuro Pack, Pack Number AMS12195C; \n2)\tNeuro Pack, Pack Number AMS12195D; \n3)\tNeuro Pack, Pack Number AMS12307; \n4)\tNeuro Spine Pack, Pack Number AM",
-      "reason": "The recall notice was initiated due to a Medicom Urgent Medical Device Recall. Medicom is recalling specific lots of Ritmed Neurological Sponges Non-Sterile Models 55992C to 55998C due to potential for unexpected variabi",
-      "recall_class": "1",
-      "date": "2026-06-08",
       "status": "Open, Classified"
     }
   ]

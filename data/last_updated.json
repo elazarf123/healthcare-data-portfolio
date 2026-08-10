@@ -1,9 +1,9 @@
 {
-  "updated": "2026-08-03T13:45:49+00:00",
-  "updated_human": "Aug 03, 2026",
+  "updated": "2026-08-10T11:52:48+00:00",
+  "updated_human": "Aug 10, 2026",
   "counts": {
     "fda_recalls": 100,
-    "nvd_medical_cves": 84,
+    "nvd_medical_cves": 85,
     "cms_hrrp_rows": 18330
   },
   "errors": {},
